@@ -1,3 +1,4 @@
+import { Play } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -42,6 +43,15 @@ export default function Herobanner() {
                 fill
                 className="object-cover"
               />
+              <div className="absolute inset-0 flex justify-center items-center">
+                <button className="bg-red-600 p-6 rounded-full text-white shadow-lg hover:bg-red-700 transition-all">
+                  <Play
+                    className="w-10 h-10 text-white"
+                    stroke="white"
+                    fill="white"
+                  />{" "}
+                </button>
+              </div>
             </div>
           </div>
         </div>

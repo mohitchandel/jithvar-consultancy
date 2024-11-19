@@ -13,20 +13,40 @@ export default function Marquee() {
   ];
 
   return (
-    <div className="bg-black overflow-hidden py-2">
-      {/* First row - Left to Right */}
-      <div className="relative flex whitespace-nowrap">
-        <div className="animate-marquee flex items-center">
+    <div className="overflow-hidden">
+      <div className="relative flex items-center bg-orange-500 text-black w-full h-[40px]">
+        <div className="marquee animate-marquee">
           {services.map((service, index) => (
-            <span key={index} className="flex items-center">
+            <span key={index} className="flex items-center mr-10">
+              <span className="px-4">{service}</span>
+              <span>◆</span>
+            </span>
+          ))}
+          {services.map((service, index) => (
+            <span
+              key={index + services.length}
+              className="flex items-center mr-10"
+            >
+              <span className="px-4">{service}</span>
+              <span>◆</span>
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div className="relative flex items-center bg-black w-full h-[40px]">
+        <div className="marquee animate-marquee">
+          {services.map((service, index) => (
+            <span key={index} className="flex items-center mr-10">
               <span className="text-[#E84E36] px-4">{service}</span>
               <span className="text-[#E84E36]">◆</span>
             </span>
           ))}
-        </div>
-        <div className="absolute top-0 flex items-center animate-marquee2">
           {services.map((service, index) => (
-            <span key={index} className="flex items-center">
+            <span
+              key={index + services.length}
+              className="flex items-center mr-10"
+            >
               <span className="text-[#E84E36] px-4">{service}</span>
               <span className="text-[#E84E36]">◆</span>
             </span>
@@ -34,25 +54,25 @@ export default function Marquee() {
         </div>
       </div>
 
-      {/* Second row - Right to Left */}
-      <div className="relative flex whitespace-nowrap mt-2">
-        <div className="animate-marquee-reverse flex items-center">
-          {services.map((service, index) => (
-            <span key={index} className="flex items-center">
-              <span className="text-[#E84E36] px-4">{service}</span>
-              <span className="text-[#E84E36]">◆</span>
-            </span>
-          ))}
-        </div>
-        <div className="absolute top-0 flex items-center animate-marquee2-reverse">
-          {services.map((service, index) => (
-            <span key={index} className="flex items-center">
-              <span className="text-[#E84E36] px-4">{service}</span>
-              <span className="text-[#E84E36]">◆</span>
-            </span>
-          ))}
-        </div>
-      </div>
+      <style jsx>{`
+        @keyframes marquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        .animate-marquee {
+          animation: marquee 20s linear infinite;
+        }
+
+        .marquee {
+          display: flex;
+          white-space: nowrap;
+        }
+      `}</style>
     </div>
   );
 }

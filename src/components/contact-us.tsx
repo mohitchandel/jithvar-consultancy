@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { Mail, Phone } from "lucide-react";
 
 export default function ContactUsSection() {
@@ -23,66 +22,73 @@ export default function ContactUsSection() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
     console.log("Form submitted:", formData);
-    // Reset form after submission
     setFormData({ name: "", email: "", message: "" });
   };
 
   return (
-    <section className="bg-black text-white py-16 md:py-24">
+    <section className="bg-black text-white py-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-bold mb-2">
+        <div className="text-center mb-4">
+          <p className="text-[#FF3D00] text-lg">Contact us</p>
+        </div>
+
+        <h2 className="text-5xl font-bold  text-center">
           Get a FREE 2hrs consultation by our experts
         </h2>
-        <p className="text-xl mb-12">Feel free to reach via contact us form.</p>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          <div className="space-y-6">
-            <div className="grid grid-cols-3 gap-4 bg-[#E84E36] p-6 rounded-lg">
-              <div className="col-span-2 space-y-4">
-                <h3 className="text-xl font-semibold">Keep in touch?</h3>
-                <p>226010 Gominagar, 1st Floor, Lucknow UP,India</p>
-                <div>
-                  <h4 className="font-semibold">Toll free customer care?</h4>
-                  <p className="flex items-center gap-2">
-                    <Phone className="w-4 h-4" />
-                    18 xxxxxxxx
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <Phone className="w-4 h-4" />
-                    18-XXXXXXXX
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-semibold">Need live support?</h4>
-                  <p className="flex items-center gap-2">
-                    <Mail className="w-4 h-4" />
-                    info@yourdomain.com
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <Mail className="w-4 h-4" />
-                    help@yourdomain.com
-                  </p>
-                </div>
+        <div className="grid md:grid-cols-2 gap-8 max-w-8xl mx-auto mt-[5%]">
+          <div className="grid bg-[#FF3D00] grid-cols-4 gap-4">
+            <div className="col-span-2">
+              <img
+                src="/img/contact-img.png"
+                alt="Contact us"
+                className="object-cover w-full h-full"
+              />
+            </div>
+            <div className="col-span-2 bg-[#FF3D00] p-6 rounded-lg space-y-4 flex flex-col justify-center">
+              <h3 className="text-xl font-semibold text-white underline">
+                Keep in touch?
+              </h3>
+              <p className="text-xl text-[#f6c1af]">
+                226010 Gominagar, 1st Floor, Lucknow UP,India
+              </p>
+
+              <div className="space-y-1">
+                <h4 className="text-xl font-semibold text-white underline mt-2">
+                  Toll free customer care?
+                </h4>
+                <p className="flex items-center gap-2 text-xl text-[#f6c1af]">
+                  <Phone className="w-4 h-4" />
+                  18 xxxxxxxx
+                </p>
+                <p className="flex items-center gap-2 text-xl text-[#f6c1af]">
+                  <Phone className="w-4 h-4" />
+                  18-XXXXXXXX
+                </p>
               </div>
-              <div className="col-span-1">
-                <Image
-                  src="/placeholder.svg"
-                  alt="Contact us"
-                  width={150}
-                  height={200}
-                  className="rounded-lg object-cover w-full h-full"
-                />
+
+              <div className="space-y-1">
+                <h4 className="text-xl font-semibold text-white underline">
+                  Need live support?
+                </h4>
+                <p className="flex text-xl items-center gap-2 text-[#f6c1af]">
+                  <Mail className="w-4 h-4" />
+                  info@yourdomain.com
+                </p>
+                <p className="flex text-xl items-center gap-2 text-[#f6c1af]">
+                  <Mail className="w-4 h-4" />
+                  help@yourdomain.com
+                </p>
               </div>
             </div>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
+            <p className="text-4xl font-bold mb-12 ">
+              Feel free to reach via contact us form.
+            </p>
             <div>
-              <label htmlFor="name" className="block mb-2 text-sm font-medium">
-                Your name*
-              </label>
               <input
                 type="text"
                 id="name"
@@ -90,14 +96,11 @@ export default function ContactUsSection() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full p-3 bg-white text-black rounded-md"
-                placeholder="Your name"
+                className="w-full p-4 bg-white border border-white/20 rounded-lg text-gray-800"
+                placeholder="Your name*"
               />
             </div>
             <div>
-              <label htmlFor="email" className="block mb-2 text-sm font-medium">
-                Your email address*
-              </label>
               <input
                 type="email"
                 id="email"
@@ -105,30 +108,24 @@ export default function ContactUsSection() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full p-3 bg-white text-black rounded-md"
-                placeholder="Your email address"
+                className="w-full p-4 bg-white border border-white/20 rounded-lg text-gray-800"
+                placeholder="Your email address*"
               />
             </div>
             <div>
-              <label
-                htmlFor="message"
-                className="block mb-2 text-sm font-medium"
-              >
-                Your message
-              </label>
               <textarea
                 id="message"
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
                 rows={4}
-                className="w-full p-3 bg-white text-black rounded-md"
+                className="w-full p-4 bg-white border border-white/20 rounded-lg text-gray-800"
                 placeholder="Your message"
               ></textarea>
             </div>
             <button
               type="submit"
-              className="bg-[#E84E36] text-white py-3 px-6 rounded-md hover:bg-[#d64530] transition-colors"
+              className="bg-gradient-to-r from-[#E84E36] to-[#C53E13] text-white py-3 px-8 rounded-lg hover:bg-[#d64530] transition-colors"
             >
               Send Message
             </button>
