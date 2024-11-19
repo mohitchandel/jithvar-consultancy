@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Star } from "lucide-react";
+import { Quote, Star } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -17,7 +17,7 @@ export default function Testimonials() {
       rating: 5,
       feedback:
         "Objectively visualize error-free technology for B2B alignment. Monotonectally harness an expanded array of models via effective collaboration.",
-      image: "/placeholder.svg",
+      image: "/img/client.png",
     },
     {
       id: 2,
@@ -26,7 +26,7 @@ export default function Testimonials() {
       rating: 5,
       feedback:
         "Objectively visualize error-free technology for B2B alignment. Monotonectally harness an expanded array of models via effective collaboration.",
-      image: "/placeholder.svg",
+      image: "/img/client.png",
     },
     {
       id: 3,
@@ -35,7 +35,7 @@ export default function Testimonials() {
       rating: 5,
       feedback:
         "Objectively visualize error-free technology for B2B alignment. Monotonectally harness an expanded array of models via effective collaboration.",
-      image: "/placeholder.svg",
+      image: "/img/client.png",
     },
   ];
 
@@ -55,41 +55,52 @@ export default function Testimonials() {
           align: "start",
           dragFree: true,
         }}
-        className="w-full"
+        className="w-full p-2"
       >
-        <CarouselContent className="-ml-6">
+        <CarouselContent className="-ml-4">
           {testimonials.map((testimonial) => (
-            <CarouselItem
-              key={testimonial.id}
-              className="pl-6 md:basis-1/2 lg:basis-1/3"
-            >
-              <div className="bg-white p-6 rounded-lg shadow-lg flex">
-                <div className="relative w-1/3 mr-4">
-                  <Image
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    width={100}
-                    height={100}
-                    className="object-cover rounded-lg"
-                  />
-                  <div className="absolute -bottom-3 -right-3 w-10 h-10 rounded-full bg-[#E84E36] flex items-center justify-center text-white font-bold text-sm">
-                    66
+            <CarouselItem key={testimonial.id} className="pl-4 basis-[45%]">
+              <div className="bg-gray-100 p-6 rounded-lg flex gap-6">
+                <div className="flex-shrink-0">
+                  <div className="relative w-36 h-40">
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      fill
+                      className="rounded-lg object-cover"
+                    />
+                    <div className="absolute -bottom-4 right-[35%] w-12 h-12 bg-[#E84E36] rounded-full flex items-center justify-center text-white font-bold text-lg">
+                      <Quote />
+                    </div>
                   </div>
                 </div>
-                <div className="w-2/3">
-                  <p className="text-gray-600 mb-4 text-sm">
+
+                <div className="flex-1">
+                  <p className="text-gray-600 mb-6 text-base leading-relaxed">
                     {testimonial.feedback}
                   </p>
-                  <div className="flex items-center gap-1 mb-2">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-4 h-4 fill-[#E84E36] text-[#E84E36]"
-                      />
-                    ))}
+
+                  <div className="border-t border-gray-200 pt-4">
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <h3 className="font-bold text-lg">
+                          {testimonial.name}
+                        </h3>
+                        <p className="text-gray-600 text-sm">
+                          {testimonial.role}
+                        </p>
+                      </div>
+                      <div className="flex gap-1">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <Star
+                            key={i}
+                            size={16}
+                            className="fill-[#E84E36] text-[#E84E36]"
+                          />
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="font-bold">{testimonial.name}</h3>
-                  <p className="text-gray-600 text-sm">{testimonial.role}</p>
                 </div>
               </div>
             </CarouselItem>
