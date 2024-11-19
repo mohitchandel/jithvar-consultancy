@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import {
   Accordion,
@@ -18,55 +17,64 @@ export default function FAQSection() {
         "Our agency offers a wide range of services including web design, web development, digital marketing, branding, and graphic design. We specialize in creating custom solutions tailored to each client's unique needs.",
     },
     {
-      question: "How long does it typically take to complete a project?",
+      question: "What services does your agency provide?",
       answer:
-        "Project timelines can vary depending on the scope and complexity of the work. A simple website might take 4-6 weeks, while a more complex web application could take 3-6 months. We provide detailed timelines during our initial consultation.",
+        "Our agency offers comprehensive digital services tailored to your needs.",
     },
     {
-      question: "Do you offer ongoing support and maintenance?",
+      question: "What services does your agency provide?",
       answer:
-        "Yes, we offer ongoing support and maintenance packages for all our projects. This includes regular updates, security patches, and technical support to ensure your digital assets remain up-to-date and secure.",
+        "Our agency offers comprehensive digital services tailored to your needs.",
     },
     {
-      question: "What is your pricing structure?",
+      question: "What services does your agency provide?",
       answer:
-        "Our pricing is project-based and depends on the specific requirements of each client. We provide detailed quotes after our initial consultation where we discuss your needs and objectives.",
+        "Our agency offers comprehensive digital services tailored to your needs.",
     },
     {
-      question: "Can you help with improving an existing website?",
+      question: "What services does your agency provide?",
       answer:
-        "We offer website audits and improvement services. We can enhance your existing website's design, functionality, and performance to better meet your current business needs.",
+        "Our agency offers comprehensive digital services tailored to your needs.",
     },
   ];
 
   return (
     <section className="container mx-auto px-4 py-16 md:py-24">
-      <div className="text-center mb-12">
-        <span className="text-[#E84E36] font-serif text-2xl">FAQs</span>
-        <h2 className="text-4xl md:text-5xl font-bold text-[#002A18] mt-4">
-          Frequently asked questions
-        </h2>
-      </div>
-
-      <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
+      <div className="max-w-3xl mx-auto">
+        <div className="text-center mb-12">
+          <span className="text-[#E84E36] font-serif text-2xl">FAQs</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-[#002A18] mt-4">
+            Frequently asked questions
+          </h2>
+        </div>
         {faqs.map((faq, index) => (
-          <AccordionItem key={index} value={`item-${index}`}>
-            <AccordionTrigger
-              className="text-left text-lg font-semibold hover:no-underline"
-              onClick={() =>
-                setOpenItem(
-                  openItem === `item-${index}` ? null : `item-${index}`
-                )
-              }
+          <div
+            key={index}
+            className="bg-white rounded-full shadow-sm mb-4 relative"
+          >
+            <Accordion
+              type="single"
+              collapsible
+              className="w-full"
+              value={openItem || undefined}
+              onValueChange={(value) => setOpenItem(value)}
             >
-              {faq.question}
-            </AccordionTrigger>
-            <AccordionContent>
-              <p className="text-gray-600">{faq.answer}</p>
-            </AccordionContent>
-          </AccordionItem>
+              <AccordionItem
+                value={`item-${index}`}
+                className="rounded-xl border-[1px] border-black"
+              >
+                <AccordionTrigger className="text-left text-base px-8 py-4 hover:no-underline ">
+                  <span className="pr-8 text-xl">{faq.question}</span>
+                </AccordionTrigger>
+                <AccordionContent className="px-8">
+                  <p className="text-gray-600 pb-4">{faq.answer}</p>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+            <div className="absolute right-8 top-1/2 -translate-y-1/2 w-2 h-2 bg-red-500 rounded-full" />
+          </div>
         ))}
-      </Accordion>
+      </div>
     </section>
   );
 }
