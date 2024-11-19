@@ -5,22 +5,22 @@ export default function TeamMembersSection() {
     {
       name: "Jane Doe",
       role: "UI/UX Designer",
-      image: "/placeholder.svg",
+      image: "/img/Cards.png",
     },
     {
       name: "John Smith",
       role: "Web Developer",
-      image: "/placeholder.svg",
+      image: "/img/Cards_1.png",
     },
     {
       name: "Emily Johnson",
       role: "Graphic Designer",
-      image: "/placeholder.svg",
+      image: "/img/Cards_2.png",
     },
     {
       name: "Michael Brown",
       role: "Project Manager",
-      image: "/placeholder.svg",
+      image: "/img/Cards_3.png",
     },
   ];
 
@@ -36,20 +36,15 @@ export default function TeamMembersSection() {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {teamMembers.map((member, index) => (
           <div key={index} className="relative group">
-            <div className="relative aspect-w-1 aspect-h-1 rounded-lg overflow-hidden">
+            <div className="relative rounded-lg overflow-hidden">
               <Image
                 src={member.image}
                 alt={member.name}
-                layout="fill"
-                objectFit="cover"
+                width={300}
+                height={300}
                 className="transition-transform duration-300 group-hover:scale-110"
+                objectFit="cover"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <div className="text-white text-center">
-                  <h3 className="text-xl font-semibold">{member.name}</h3>
-                  <p className="text-sm">{member.role}</p>
-                </div>
-              </div>
             </div>
           </div>
         ))}

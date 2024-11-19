@@ -1,13 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import {
-  ArrowLeft,
-  ArrowRight,
-  MoveRight,
-  Mail,
-  ChevronRight,
-} from "lucide-react";
+import { ArrowLeft, ArrowRight, Mail, ChevronRight } from "lucide-react";
 import Image from "next/image";
 
 export default function ServiceCarousel() {

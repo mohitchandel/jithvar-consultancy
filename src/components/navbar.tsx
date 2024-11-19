@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 
 export default function Navbar() {
