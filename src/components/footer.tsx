@@ -97,8 +97,8 @@ export default function Footer() {
               <span className="block w-[80px] border-b-4 border-[#E84E36]"></span>
             </h3>
             <p className="text-sm text-gray-400 mb-4">
-              Don't miss to subscribe to our new feeds, kindly fill the form
-              below.
+              Don&lsquo;t miss to subscribe to our new feeds, kindly fill the
+              form below.
             </p>
             <form className="flex">
               <input
