@@ -14,7 +14,7 @@ export default function Service() {
       title: "WEB DESIGN",
       description:
         "Our web design services focus on creating visually engaging, user-friendly websites that embody your brand's essence.",
-      image: "/placeholder.svg",
+      image: "/img/service-1.png",
     },
     {
       id: "ui-ux-design",
