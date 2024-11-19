@@ -3,44 +3,20 @@ import Link from "next/link";
 import { Check } from "lucide-react";
 
 export default function About() {
+  const circleOneImage = "/img/about-img.png";
+
   return (
     <section className="container mx-auto px-4 py-16 md:py-24">
-      <div className="grid md:grid-cols-2 gap-12 items-center">
-        <div className="relative">
-          <div className="relative w-[500px] h-[500px]">
-            <div className="absolute inset-0 z-0">
-              <svg
-                viewBox="0 0 500 500"
-                className="w-full h-full fill-[#E84E36]/20"
-              >
-                <path d="M500,250c0,138.071-111.929,250-250,250S0,388.071,0,250S111.929,0,250,0S500,111.929,500,250z">
-                  <animate
-                    attributeName="d"
-                    dur="10s"
-                    repeatCount="indefinite"
-                    values="M500,250c0,138.071-111.929,250-250,250S0,388.071,0,250S111.929,0,250,0S500,111.929,500,250z;
-                            M500,250c0,138.071-161.929,200-300,200S0,388.071,0,250S111.929,50,250,50S500,111.929,500,250z;
-                            M500,250c0,138.071-111.929,250-250,250S0,388.071,0,250S111.929,0,250,0S500,111.929,500,250z"
-                  />
-                </path>
-              </svg>
-            </div>
-
-            <div className="absolute top-0 left-0 w-96 h-96 rounded-full overflow-hidden border-8 border-white shadow-lg">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="relative w-full">
+          <div className="relative w-full h-[300px] sm:h-[400px] md:h-[600px] mx-auto">
+            <div className="w-full h-full rounded-lg overflow-hidden  ">
               <Image
-                src="/placeholder.svg"
-                alt="Business meeting"
-                fill
-                className="object-cover"
-              />
-            </div>
-
-            <div className="absolute bottom-20 right-20 w-72 h-72 rounded-full overflow-hidden border-8 border-white shadow-lg">
-              <Image
-                src="/placeholder.svg"
-                alt="Team collaboration"
-                fill
-                className="object-cover"
+                src={circleOneImage}
+                alt="Nature Image"
+                width={600}
+                height={600}
+                className="object-contain w-full h-full"
               />
             </div>
           </div>
@@ -50,10 +26,10 @@ export default function About() {
           <span className="text-[#E84E36] font-serif text-2xl">
             About Business
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-[#002A18] leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#002A18] leading-tight">
             Smart and effective business solutions.
           </h2>
-          <p className="text-gray-600 text-lg">
+          <p className="text-gray-600 text-lg sm:text-xl">
             We are excited for our work and how it positively impacts clients.
             With over 12 years of experience we have been constantly providing
             excellent solutions.

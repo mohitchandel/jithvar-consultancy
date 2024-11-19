@@ -14,35 +14,35 @@ export default function Service() {
       title: "WEB DESIGN",
       description:
         "Our web design services focus on creating visually engaging, user-friendly websites that embody your brand's essence.",
-      image: "/img/service-1.png",
+      image: "/img/service-carousel-1.png",
     },
     {
       id: "ui-ux-design",
       title: "UI/UX DESIGN",
       description:
         "Our web design services focus on creating visually engaging, user-friendly websites that embody your brand's essence.",
-      image: "/placeholder.svg",
+      image: "/img/service-carousel-1.png",
     },
     {
       id: "digital-marketing",
       title: "DIGITAL MARKETING",
       description:
         "Our digital marketing services are designed to help businesses of all sizes increase their online presence, attract more traffic, and generate leads and sales.",
-      image: "/placeholder.svg",
+      image: "/img/service-carousel-2.png",
     },
     {
       id: "branding",
       title: "BRANDING",
       description:
         "Our web design services focus on creating visually engaging, user-friendly websites that embody your brand's essence.",
-      image: "/placeholder.svg",
+      image: "/img/service-carousel-3.png",
     },
     {
       id: "graphics-design",
       title: "GRAPHICS DESIGN",
       description:
         "Graphic Designing services that reflects your brand's personality, values, and vision",
-      image: "/placeholder.svg",
+      image: "/img/service-carousel-4.png",
     },
   ];
 
@@ -57,7 +57,7 @@ export default function Service() {
         </h2>
       </div>
 
-      <div className="space-y-px">
+      <div className="space-y-6 md:space-y-0">
         {services.map((service) => (
           <div
             key={service.id}
@@ -70,8 +70,8 @@ export default function Service() {
             onMouseLeave={() => setHoveredService(null)}
           >
             <div className="container mx-auto px-4">
-              <div className="grid md:grid-cols-2 gap-8 items-center py-8">
-                <div className="flex items-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center py-8">
+                <div className="flex items-center justify-center md:justify-start">
                   <h3
                     className={`text-3xl md:text-4xl font-bold transition-colors duration-500 ${
                       hoveredService === service.id
@@ -83,23 +83,26 @@ export default function Service() {
                   </h3>
                 </div>
 
-                <div className="flex items-center justify-between gap-8">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                   <div
-                    className={`relative w-48 h-32 rounded-2xl overflow-hidden transition-opacity duration-500 ${
+                    className={`relative w-full md:w-[600px] md:ml-[-300px] h-56 md:h-32 rounded-2xl overflow-hidden transition-opacity duration-500 ${
                       hoveredService === service.id
                         ? "opacity-100"
                         : "opacity-0"
                     }`}
                   >
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      className="object-cover"
-                    />
+                    <div className="flex justify-center items-center w-full h-full">
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        layout="fill"
+                        className="object-cover"
+                      />
+                    </div>
                   </div>
+
                   <p
-                    className={`transition-colors duration-500 ${
+                    className={`transition-colors duration-500 mt-4 md:mt-0 ${
                       hoveredService === service.id
                         ? "text-white"
                         : "text-gray-600"
