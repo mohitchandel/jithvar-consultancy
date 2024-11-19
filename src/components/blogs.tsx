@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Calendar } from "lucide-react";
 
 export default function BlogNewsSection() {
   const blogPosts = [
@@ -8,14 +8,14 @@ export default function BlogNewsSection() {
       title: "5 Ways Technology Has Improved Business Today",
       excerpt:
         "They play a role in making operations more seamless, bridging the gap between authorities, consumers and businesses. ...",
-      image: "/placeholder.svg",
+      image: "/img/blog-2.png",
       date: "February 28, 2024",
     },
     {
       title: "5 Ways Technology Has Improved Business Today",
       excerpt:
         "They play a role in making operations more seamless, bridging the gap between authorities, consumers and businesses. ...",
-      image: "/placeholder.svg",
+      image: "/img/blog-1.png",
       date: "February 28, 2024",
     },
   ];
@@ -29,62 +29,71 @@ export default function BlogNewsSection() {
   ];
 
   return (
-    <section className="container mx-auto px-4 py-16 md:py-24">
-      <div className="flex flex-col md:flex-row justify-between items-start mb-12">
-        <div>
-          <span className="text-[#E84E36] font-serif text-2xl">
-            Blogs & news
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-[#002A18] mt-4">
-            Interesting articles
-            <br />
-            updated daily
-          </h2>
-        </div>
-        <div className="mt-4 md:mt-0">
-          <ul className="space-y-2">
-            {recentPosts.map((post, index) => (
-              <li
-                key={index}
-                className="flex items-center text-gray-600 hover:text-[#E84E36]"
-              >
-                <ArrowRight className="w-4 h-4 mr-2 text-[#E84E36]" />
-                <Link href="#">{post}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      <div className="grid md:grid-cols-2 gap-8">
-        {blogPosts.map((post, index) => (
-          <div
-            key={index}
-            className="bg-white rounded-lg shadow-lg overflow-hidden flex"
-          >
-            <div className="relative w-1/2">
-              <Image
-                src={post.image}
-                alt={post.title}
-                layout="fill"
-                objectFit="cover"
-              />
-            </div>
-            <div className="w-1/2 p-6">
-              <p className="text-gray-500 text-sm mb-2">{post.date}</p>
-              <h3 className="text-xl font-semibold mb-2">{post.title}</h3>
-              <p className="text-gray-600 mb-4">{post.excerpt}</p>
-              <Link
-                href="#"
-                className="text-[#E84E36] font-semibold hover:underline flex items-center"
-              >
-                Read more
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Link>
-            </div>
+    <div className="max-w-7xl mx-auto px-4 py-16">
+      <div className="flex flex-col md:flex-row gap-8">
+        <div className="w-full md:w-1/3">
+          <div className="mb-8">
+            <span className="text-red-500 font-serif text-xl">
+              - Blogs & news
+            </span>
+            <h2 className="text-3xl font-bold text-gray-900 mt-2">
+              Interesting articles
+              <br />
+              updated daily
+            </h2>
           </div>
-        ))}
+
+          <div className="space-y-4">
+            {recentPosts.map((post, index) => (
+              <div key={index} className="flex items-center group">
+                <ArrowRight className="w-4 h-4 mr-2 text-red-500 flex-shrink-0" />
+                <Link
+                  href="#"
+                  className="text-black hover:text-red-500 transition-colors duration-200 text-xl"
+                >
+                  {post}
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="w-full md:w-2/3">
+          <div className="grid grid-cols-2 gap-8">
+            {blogPosts.map((post, index) => (
+              <div key={index} className="bg-white rounded-lg shadow-md">
+                <div className="flex flex-col h-full">
+                  <div className="relative h-48 w-full">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      className="rounded-t-lg object-cover"
+                      fill
+                    />
+                  </div>
+                  <div className="p-6">
+                    <p className="text-gray-500 text-sm flex items-center gap-1">
+                      <Calendar size={16} />
+                      {post.date}
+                    </p>
+                    <h3 className="text-xl font-semibold mt-2 mb-3">
+                      {post.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm mb-4">{post.excerpt}</p>
+                    <Link
+                      href="#"
+                      className="inline-flex items-center text-red-500 hover:text-red-600 text-sm font-medium"
+                    >
+                      Read more
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
   );
 }
