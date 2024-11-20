@@ -30,7 +30,7 @@ export default function ContactUsSection() {
     <section className="bg-black text-white py-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-4">
-          <p className="text-[#FF3D00] text-lg">Contact us</p>
+          <p className="text-[#DE2329] text-lg">Contact us</p>
         </div>
 
         <h2 className="text-5xl font-bold  text-center">
@@ -38,7 +38,7 @@ export default function ContactUsSection() {
         </h2>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-8xl mx-auto mt-[5%]">
-          <div className="grid bg-[#FF3D00] grid-cols-4 gap-4">
+          <div className="grid bg-[#DE2329] grid-cols-4 gap-4">
             <div className="col-span-2">
               <img
                 src="/img/contact-img.png"
@@ -46,7 +46,7 @@ export default function ContactUsSection() {
                 className="object-cover w-full h-full"
               />
             </div>
-            <div className="col-span-2 bg-[#FF3D00] p-6 rounded-lg space-y-4 flex flex-col justify-center">
+            <div className="col-span-2 bg-[#DE2329] p-6 rounded-lg space-y-4 flex flex-col justify-center">
               <h3 className="text-xl font-semibold text-white underline">
                 Keep in touch?
               </h3>
@@ -125,7 +125,7 @@ export default function ContactUsSection() {
             </div>
             <button
               type="submit"
-              className="bg-gradient-to-r from-[#E84E36] to-[#C53E13] text-white py-3 px-8 rounded-lg hover:bg-[#d64530] transition-colors"
+              className="bg-gradient-to-r from-[#DE2329] to-[#A70909] text-white py-3 px-8 rounded-lg hover:bg-[#DE2329] transition-colors"
             >
               Send Message
             </button>

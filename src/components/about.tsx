@@ -23,7 +23,7 @@ export default function About() {
         </div>
 
         <div className="space-y-6">
-          <span className="text-[#E84E36] font-serif text-2xl">
+          <span className="text-[#DE2329] font-serif text-2xl">
             About Business
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#002A18] leading-tight">
@@ -43,8 +43,8 @@ export default function About() {
               "Custom design and branding services",
             ].map((item, index) => (
               <li key={index} className="flex items-center gap-3">
-                <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#E84E36]/10 flex items-center justify-center">
-                  <Check className="w-3 h-3 text-[#E84E36]" />
+                <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#DE2329]/10 flex items-center justify-center">
+                  <Check className="w-3 h-3 text-[#DE2329]" />
                 </span>
                 <span className="text-gray-700">{item}</span>
               </li>
@@ -54,7 +54,7 @@ export default function About() {
           <div className="flex gap-4 pt-4">
             <Link
               href="/services"
-              className="bg-[#E84E36] text-white px-6 py-3 rounded-md hover:bg-[#d64530] transition-colors"
+              className="bg-gradient-to-r from-[#DE2329] to-[#A70909] text-white py-3 px-8 rounded-lg hover:bg-[#DE2329] transition-colors"
             >
               Our services
             </Link>

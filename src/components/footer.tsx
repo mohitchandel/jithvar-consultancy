@@ -16,7 +16,7 @@ export default function Footer() {
           <div className="flex flex-col items-start justify-center">
             <h2 className="text-2xl font-bold text-white  mt-4">Find Us</h2>
             <div className="flex items-center">
-              <MapPin className="w-6 h-6 text-[#E84E36] mr-2" />
+              <MapPin className="w-6 h-6 text-[#DE2329] mr-2" />
               <p className="text-sm">
                 C-3/81, 2nd Floor, SPA Tower, Vibhuti Khand, Gomti Nagar,
                 Lucknow. 226010
@@ -27,7 +27,7 @@ export default function Footer() {
           <div className="flex flex-col items-center justify-center">
             <h2 className="text-2xl font-bold text-white mt-4 ">Call Us</h2>
             <div className="flex items-center">
-              <Phone className="w-6 h-6 text-[#E84E36] mr-2" />
+              <Phone className="w-6 h-6 text-[#DE2329] mr-2" />
               <p className="text-sm">790-5590-238</p>
             </div>
           </div>
@@ -35,7 +35,7 @@ export default function Footer() {
           <div className="flex flex-col items-center justify-center">
             <h2 className="text-2xl font-bold text-white mt-[20px]">Mail Us</h2>
             <div className="flex items-center">
-              <Mail className="w-6 h-6 text-[#E84E36] mr-2" />
+              <Mail className="w-6 h-6 text-[#DE2329] mr-2" />
               <p className="text-sm">Hello@Jithvar.Com</p>
             </div>
           </div>
@@ -65,7 +65,7 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">
               Useful Links
-              <span className="block w-[80px] border-b-4 border-[#E84E36]"></span>
+              <span className="block w-[80px] border-b-4 border-[#DE2329]"></span>
             </h3>
             <div className="grid grid-cols-2 gap-2">
               {[
@@ -94,7 +94,7 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">
               Subscribe
-              <span className="block w-[80px] border-b-4 border-[#E84E36]"></span>
+              <span className="block w-[80px] border-b-4 border-[#DE2329]"></span>
             </h3>
             <p className="text-sm text-gray-400 mb-4">
               Don&lsquo;t miss to subscribe to our new feeds, kindly fill the
@@ -108,7 +108,7 @@ export default function Footer() {
               />
               <button
                 type="submit"
-                className="bg-[#E84E36] text-white px-4 py-2 text-sm hover:bg-[#d64530] transition-colors"
+                className="bg-[#DE2329] text-white px-4 py-2 text-sm hover:bg-[#d64530] transition-colors"
               >
                 <Mail className="w-4 h-4" />
               </button>
@@ -121,7 +121,7 @@ export default function Footer() {
           <div>
             <p className="text-sm">
               Copyright © 2024, All Right Reserved{" "}
-              <span className="text-[#E84E36]">JCS</span>
+              <span className="text-[#DE2329]">JCS</span>
             </p>
           </div>
 

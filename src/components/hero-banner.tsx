@@ -8,7 +8,7 @@ export default function Herobanner() {
       <div className="container mx-auto px-4 py-12 md:py-24">
         <div className="grid md:grid-cols-2 gap-6 items-center">
           <div className="space-y-6">
-            <span className="text-[#E84E36] font-serif text-2xl">
+            <span className="text-[#DE2329] font-serif text-2xl">
               Welcome To Jithwar
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#002A18] leading-tight">
@@ -23,7 +23,7 @@ export default function Herobanner() {
             <div className="flex gap-4 ">
               <Link
                 href="/talk-to-experts"
-                className="bg-gradient-to-r from-[#E84E36] to-[#C53E13] text-white px-6 py-3 rounded-md hover:bg-[#d64530] transition-colors"
+                className="bg-gradient-to-r from-[#DE2329] to-[#A70909] text-white py-3 px-8 rounded-lg hover:bg-[#DE2329] transition-colors"
               >
                 Talk To Experts
               </Link>

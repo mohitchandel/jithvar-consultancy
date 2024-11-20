@@ -14,7 +14,7 @@ export default function Marquee() {
 
   return (
     <div className="overflow-hidden">
-      <div className="relative flex items-center bg-orange-500 text-black w-full h-[40px]">
+      <div className="relative flex items-center bg-[#DE2329] text-black w-full h-[40px]">
         <div className="marquee animate-marquee">
           {services.map((service, index) => (
             <span key={index} className="flex items-center mr-10">
@@ -38,8 +38,8 @@ export default function Marquee() {
         <div className="marquee animate-marquee">
           {services.map((service, index) => (
             <span key={index} className="flex items-center mr-10">
-              <span className="text-[#E84E36] px-4">{service}</span>
-              <span className="text-[#E84E36]">◆</span>
+              <span className="text-[#DE2329] px-4">{service}</span>
+              <span className="text-[#DE2329]">◆</span>
             </span>
           ))}
           {services.map((service, index) => (
@@ -47,8 +47,8 @@ export default function Marquee() {
               key={index + services.length}
               className="flex items-center mr-10"
             >
-              <span className="text-[#E84E36] px-4">{service}</span>
-              <span className="text-[#E84E36]">◆</span>
+              <span className="text-[#DE2329] px-4">{service}</span>
+              <span className="text-[#DE2329]">◆</span>
             </span>
           ))}
         </div>

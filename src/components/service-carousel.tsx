@@ -47,7 +47,7 @@ export default function ServiceCarousel() {
   };
 
   return (
-    <section className="bg-[#E84E36] px-4 py-16 md:py-24 relative overflow-hidden">
+    <section className="bg-[#DE2329] px-4 py-16 md:py-24 relative overflow-hidden">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-16">
           <div className="space-y-6  flex">
@@ -104,7 +104,7 @@ export default function ServiceCarousel() {
                     className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-6 left-6">
-                    <span className="px-6 py-2 bg-white text-[#E84E36] rounded-full text-sm font-medium">
+                    <span className="px-6 py-2 bg-white text-[#DE2329] rounded-full text-sm font-medium">
                       {service.tag}
                     </span>
                   </div>
@@ -116,7 +116,7 @@ export default function ServiceCarousel() {
                   </div>
                 </div>
                 <button
-                  className="absolute -bottom-7 right-[45%] w-14 h-14 rounded-full bg-[#E84E36] flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-[#d14530] shadow-md shadow-gray-200"
+                  className="absolute -bottom-7 right-[45%] w-14 h-14 rounded-full bg-[#DE2329] flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-[#d14530] shadow-md shadow-gray-200"
                   aria-label="View service details"
                 >
                   <ChevronRight className="w-6 h-6 text-white" />

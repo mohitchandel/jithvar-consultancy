@@ -47,74 +47,78 @@ export default function Service() {
   ];
 
   return (
-    <section className="container mx-auto px-4 py-16 md:py-24">
-      <div className="text-center mb-16">
-        <span className="text-[#E84E36] font-serif text-2xl">Our Services</span>
-        <h2 className="text-4xl md:text-5xl font-bold text-[#002A18] mt-4">
-          We Provide Top Notch
-          <br />
-          Services For You
-        </h2>
-      </div>
+    <section className="py-16 md:py-24 bg-[url('/img/service-bg.png')] bg-cover bg-center">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <span className="text-[#DE2329] font-serif text-2xl">
+            Our Services
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold text-[#002A18] mt-4">
+            We Provide Top Notch
+            <br />
+            Services For You
+          </h2>
+        </div>
 
-      <div className="space-y-6 md:space-y-0">
-        {services.map((service) => (
-          <div
-            key={service.id}
-            className={`group relative overflow-hidden transition-all duration-500 ease-in-out ${
-              hoveredService === service.id
-                ? "bg-black"
-                : "bg-white hover:bg-black/5"
-            }`}
-            onMouseEnter={() => setHoveredService(service.id)}
-            onMouseLeave={() => setHoveredService(null)}
-          >
-            <div className="container mx-auto px-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center py-8">
-                <div className="flex items-center justify-center md:justify-start">
-                  <h3
-                    className={`text-3xl md:text-4xl font-bold transition-colors duration-500 ${
-                      hoveredService === service.id
-                        ? "text-white"
-                        : "text-black"
-                    }`}
-                  >
-                    {service.title}
-                  </h3>
-                </div>
-
-                <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-                  <div
-                    className={`relative w-full md:w-[600px] md:ml-[-300px] h-56 md:h-32 rounded-2xl overflow-hidden transition-opacity duration-500 ${
-                      hoveredService === service.id
-                        ? "opacity-100"
-                        : "opacity-0"
-                    }`}
-                  >
-                    <div className="flex justify-center items-center w-full h-full">
-                      <Image
-                        src={service.image}
-                        alt={service.title}
-                        layout="fill"
-                        className="object-cover"
-                      />
-                    </div>
+        <div className="space-y-6 md:space-y-0">
+          {services.map((service) => (
+            <div
+              key={service.id}
+              className={`group relative overflow-hidden transition-all duration-500 ease-in-out ${
+                hoveredService === service.id
+                  ? "bg-black"
+                  : "bg-transparent hover:bg-black/5"
+              }`}
+              onMouseEnter={() => setHoveredService(service.id)}
+              onMouseLeave={() => setHoveredService(null)}
+            >
+              <div className="container mx-auto px-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center py-8">
+                  <div className="flex items-center justify-center md:justify-start">
+                    <h3
+                      className={`text-3xl md:text-4xl font-bold transition-colors duration-500 ${
+                        hoveredService === service.id
+                          ? "text-white"
+                          : "text-black"
+                      }`}
+                    >
+                      {service.title}
+                    </h3>
                   </div>
 
-                  <p
-                    className={`transition-colors duration-500 mt-4 md:mt-0 ${
-                      hoveredService === service.id
-                        ? "text-white"
-                        : "text-gray-600"
-                    }`}
-                  >
-                    {service.description}
-                  </p>
+                  <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+                    <div
+                      className={`relative w-full md:w-[600px] md:ml-[-300px] h-56 md:h-32 rounded-2xl overflow-hidden transition-opacity duration-500 ${
+                        hoveredService === service.id
+                          ? "opacity-100"
+                          : "opacity-0"
+                      }`}
+                    >
+                      <div className="flex justify-center items-center w-full h-full">
+                        <Image
+                          src={service.image}
+                          alt={service.title}
+                          layout="fill"
+                          className="object-cover"
+                        />
+                      </div>
+                    </div>
+
+                    <p
+                      className={`transition-colors duration-500 mt-4 md:mt-0 ${
+                        hoveredService === service.id
+                          ? "text-white"
+                          : "text-gray-600"
+                      }`}
+                    >
+                      {service.description}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

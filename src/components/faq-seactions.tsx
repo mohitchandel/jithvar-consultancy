@@ -42,7 +42,7 @@ export default function FAQSection() {
     <section className="container mx-auto px-4 py-16 md:py-24">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12">
-          <span className="text-[#E84E36] font-serif text-2xl">FAQs</span>
+          <span className="text-[#DE2329] font-serif text-2xl">FAQs</span>
           <h2 className="text-4xl md:text-5xl font-bold text-[#002A18] mt-4">
             Frequently asked questions
           </h2>

@@ -42,7 +42,7 @@ export default function Testimonials() {
   return (
     <section className="container mx-auto px-4 py-16 md:py-24">
       <div className="text-center mb-16">
-        <span className="text-[#E84E36] font-serif text-2xl">
+        <span className="text-[#DE2329] font-serif text-2xl">
           Customer Feedback
         </span>
         <h2 className="text-4xl md:text-5xl font-bold text-[#002A18] mt-4">
@@ -69,7 +69,7 @@ export default function Testimonials() {
                       fill
                       className="rounded-lg object-cover"
                     />
-                    <div className="absolute -bottom-4 right-[35%] w-12 h-12 bg-[#E84E36] rounded-full flex items-center justify-center text-white font-bold text-lg">
+                    <div className="absolute -bottom-4 right-[35%] w-12 h-12 bg-[#DE2329] rounded-full flex items-center justify-center text-white font-bold text-lg">
                       <Quote />
                     </div>
                   </div>
@@ -95,7 +95,7 @@ export default function Testimonials() {
                           <Star
                             key={i}
                             size={16}
-                            className="fill-[#E84E36] text-[#E84E36]"
+                            className="fill-[#DE2329] text-[#DE2329]"
                           />
                         ))}
                       </div>

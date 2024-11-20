@@ -5,7 +5,7 @@ export default function CTASection() {
     <section className="relative bg-[url('/img/cta-bg.png')] py-20 md:py-32 overflow-hidden bg-center bg-cover bg-no-repeat">
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center text-white">
-          <span className="text-[#E84E36] font-serif text-2xl">
+          <span className="text-[#DE2329] font-serif text-2xl">
             Talk to an Expert
           </span>
           <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
@@ -15,7 +15,7 @@ export default function CTASection() {
           </h2>
           <p className="text-xl mb-8">
             Need any kind Web & Design service,{" "}
-            <Link href="/contact" className="text-[#E84E36] hover:underline">
+            <Link href="/contact" className="text-[#DE2329] hover:underline">
               Contact us
             </Link>
             .
@@ -23,7 +23,7 @@ export default function CTASection() {
           <div className="flex justify-center space-x-4">
             <Link
               href="tel:+91xxxxxxxxxx"
-              className="bg-[#E84E36] text-white px-6 py-3 rounded-md hover:bg-[#d64530] transition-colors"
+              className="bg-gradient-to-r from-[#DE2329] to-[#A70909] text-white py-3 px-8 rounded-lg hover:bg-[#DE2329] transition-colors"
             >
               +91 xxxxxxxxxx
             </Link>

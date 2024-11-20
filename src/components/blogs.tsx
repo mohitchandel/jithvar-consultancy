@@ -33,7 +33,7 @@ export default function BlogNewsSection() {
       <div className="flex flex-col md:flex-row gap-8">
         <div className="w-full md:w-1/3">
           <div className="mb-8">
-            <span className="text-red-500 font-serif text-xl">
+            <span className="text-[#DE2329] font-serif text-xl">
               - Blogs & news
             </span>
             <h2 className="text-3xl font-bold text-gray-900 mt-2">
@@ -46,10 +46,10 @@ export default function BlogNewsSection() {
           <div className="space-y-4">
             {recentPosts.map((post, index) => (
               <div key={index} className="flex items-center group">
-                <ArrowRight className="w-4 h-4 mr-2 text-red-500 flex-shrink-0" />
+                <ArrowRight className="w-4 h-4 mr-2 text-[#DE2329] flex-shrink-0" />
                 <Link
                   href="#"
-                  className="text-black hover:text-red-500 transition-colors duration-200 text-xl"
+                  className="text-black hover:text-[#DE2329] transition-colors duration-200 text-xl"
                 >
                   {post}
                 </Link>
@@ -82,7 +82,7 @@ export default function BlogNewsSection() {
                     <p className="text-gray-600 text-sm mb-4">{post.excerpt}</p>
                     <Link
                       href="#"
-                      className="inline-flex items-center text-red-500 hover:text-red-600 text-sm font-medium"
+                      className="inline-flex items-center text-[#DE2329] text-sm font-medium"
                     >
                       Read more
                       <ArrowRight className="w-4 h-4 ml-2" />
