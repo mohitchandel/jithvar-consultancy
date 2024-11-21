@@ -47,36 +47,36 @@ export default function ContactUsSection() {
               />
             </div>
             <div className="col-span-2 bg-[#DE2329] p-6 rounded-lg space-y-4 flex flex-col justify-center">
-              <h3 className="text-xl font-semibold text-white underline">
+              <h3 className="md:text-xl text-sm font-semibold text-white underline">
                 Keep in touch?
               </h3>
-              <p className="text-xl text-[#f6c1af]">
+              <p className="md:text-xl text-sm text-[#f6c1af]">
                 226010 Gominagar, 1st Floor, Lucknow UP,India
               </p>
 
               <div className="space-y-1">
-                <h4 className="text-xl font-semibold text-white underline mt-2">
+                <h4 className="md:text-xl text-sm font-semibold text-white underline mt-2">
                   Toll free customer care?
                 </h4>
-                <p className="flex items-center gap-2 text-xl text-[#f6c1af]">
+                <p className="flex items-center gap-2 md:text-xl text-sm text-[#f6c1af]">
                   <Phone className="w-4 h-4" />
                   18 xxxxxxxx
                 </p>
-                <p className="flex items-center gap-2 text-xl text-[#f6c1af]">
+                <p className="flex items-center gap-2 md:text-xl text-sm text-[#f6c1af]">
                   <Phone className="w-4 h-4" />
                   18-XXXXXXXX
                 </p>
               </div>
 
               <div className="space-y-1">
-                <h4 className="text-xl font-semibold text-white underline">
+                <h4 className="md:text-xl text-sm font-semibold text-white underline">
                   Need live support?
                 </h4>
-                <p className="flex text-xl items-center gap-2 text-[#f6c1af]">
+                <p className="flex md:text-xl text-sm items-center gap-2 text-[#f6c1af]">
                   <Mail className="w-4 h-4" />
                   info@yourdomain.com
                 </p>
-                <p className="flex text-xl items-center gap-2 text-[#f6c1af]">
+                <p className="flex md:text-xl text-sm items-center gap-2 text-[#f6c1af]">
                   <Mail className="w-4 h-4" />
                   help@yourdomain.com
                 </p>
