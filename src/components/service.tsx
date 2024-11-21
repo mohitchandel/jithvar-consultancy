@@ -47,13 +47,20 @@ export default function Service() {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-[url('/img/service-about-bg.png')] bg-cover bg-center">
-      <div className="container mx-auto px-4">
+    <section className="relative py-16 md:py-24">
+      <div
+        className="absolute inset-0 bg-[url('/img/service-about-bg.png')] bg-cover bg-center"
+        style={{
+          backgroundBlendMode: "overlay",
+        }}
+      />
+      <div className="absolute inset-0 bg-black/10" />
+      <div className="relative">
         <div className="text-center mb-16">
-          <span className="text-[#DE2329] font-serif text-2xl sofia">
+          <span className="text-[#DE2329] font-serif text-3xl sofia">
             Our Services
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-[#002A18] mt-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-black mt-4">
             We Provide Top Notch
             <br />
             Services For You
@@ -66,8 +73,8 @@ export default function Service() {
               key={service.id}
               className={`group relative overflow-hidden transition-all duration-500 ease-in-out ${
                 hoveredService === service.id
-                  ? "bg-black"
-                  : "bg-transparent hover:bg-black/5"
+                  ? "bg-black/80"
+                  : "bg-transparent hover:bg-black/60"
               }`}
               onMouseEnter={() => setHoveredService(service.id)}
               onMouseLeave={() => setHoveredService(null)}
@@ -108,7 +115,7 @@ export default function Service() {
                       className={`transition-colors duration-500 mt-4 md:mt-0 ${
                         hoveredService === service.id
                           ? "text-white"
-                          : "text-gray-600"
+                          : "text-black"
                       }`}
                     >
                       {service.description}
