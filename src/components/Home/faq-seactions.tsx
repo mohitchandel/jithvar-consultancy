@@ -160,7 +160,7 @@ export default function FAQSection() {
               </AccordionItem>
             </Accordion>
             <motion.div
-              className="absolute right-8 top-1/2 -translate-y-1/2 w-4 h-4 bg-red-500 rounded-full"
+              className="absolute right-8 top-[40%] -translate-y-1/2 w-4 h-4 bg-red-500 rounded-full"
               variants={dotVariants}
               initial={false}
               animate={{
