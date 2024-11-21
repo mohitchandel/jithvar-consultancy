@@ -43,7 +43,7 @@ export default function Testimonials() {
     <section className="py-16 md:py-32 bg-[url('/img/service-about-bg.png')] bg-cover">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <span className="text-[#DE2329] font-serif text-2xl sofia">
+          <span className="text-[#DE2329] font-serif text-3xl sofia">
             Customer Feedback
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-[#002A18] mt-4">
