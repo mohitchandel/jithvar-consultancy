@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 const CTASection = () => {
   return (
     <div className="relative h-[600px] w-full overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-emerald-900 to-emerald-800" />
+      <div className="absolute inset-0 bg-[#001D08]" />
 
       <div
         className="absolute inset-0 bg-cover bg-center z-0 opacity-30"
