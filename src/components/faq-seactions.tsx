@@ -71,7 +71,7 @@ export default function FAQSection() {
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
-            <div className="absolute right-8 top-1/2 -translate-y-1/2 w-2 h-2 bg-red-500 rounded-full" />
+            <div className="absolute right-8 top-1/2 -translate-y-1/2 w-4 h-4 bg-red-500 rounded-full" />
           </div>
         ))}
       </div>
