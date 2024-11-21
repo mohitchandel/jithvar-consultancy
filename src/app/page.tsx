@@ -16,7 +16,9 @@ export default function Home() {
       <Herobanner />
       <MarqueeSection />
       <About />
-      <Service />
+      <div className="hidden md:block">
+        <Service />
+      </div>
       <ServiceCarousel />
       <TeamMembersSection />
       <Testimonials />

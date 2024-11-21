@@ -1,149 +1,139 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import {
+  ArrowLeft,
+  ArrowRight,
+  FacebookIcon,
+  InstagramIcon,
+  LinkedinIcon,
+} from "lucide-react";
 
 export default function TeamMembersSection() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const buttonVariants = {
+    hover: {
+      scale: 1.1,
+      backgroundColor: "rgba(255, 255, 255, 0.2)",
+      transition: { duration: 0.2 },
+    },
+    tap: { scale: 0.95 },
+  };
+
   const teamMembers = [
     {
-      name: "Jane Doe",
-      role: "UI/UX Designer",
+      name: "Josephine makus",
+      role: "Company role",
       image: "/img/Cards.png",
+      socialLinks: ["facebook", "instagram", "linkedin"],
     },
     {
       name: "John Smith",
-      role: "Web Developer",
+      role: "Company role",
       image: "/img/Cards_1.png",
+      socialLinks: ["facebook", "instagram", "linkedin"],
     },
     {
       name: "Emily Johnson",
-      role: "Graphic Designer",
+      role: "Company role",
       image: "/img/Cards_2.png",
+      socialLinks: ["facebook", "instagram", "linkedin"],
     },
     {
       name: "Michael Brown",
-      role: "Project Manager",
+      role: "Company role",
       image: "/img/Cards_3.png",
+      socialLinks: ["facebook", "instagram", "linkedin"],
     },
   ];
 
-  const headerVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev === teamMembers.length - 1 ? 0 : prev + 1));
   };
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const overlayVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { duration: 0.3 },
-    },
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? teamMembers.length - 1 : prev - 1));
   };
 
   return (
     <section className="container mx-auto px-4 py-16 md:py-24">
-      <motion.div
-        className="text-center mb-12"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={containerVariants}
-      >
-        <motion.span
-          className="text-[#DE2329] font-serif text-3xl sofia"
-          variants={headerVariants}
-        >
-          Team
-        </motion.span>
-        <motion.h2
-          className="text-4xl md:text-5xl font-bold text-[#002A18] mt-4"
-          variants={headerVariants}
-        >
-          Meet our team members
-        </motion.h2>
-      </motion.div>
-
-      <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={containerVariants}
-      >
-        {teamMembers.map((member, index) => (
-          <motion.div
-            key={index}
-            className="relative group"
-            variants={cardVariants}
-          >
-            <motion.div
-              className="relative rounded-lg overflow-hidden"
-              whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.3 }}
+      <div className="text-center mb-8">
+        <span className="text-[#DE2329] font-serif text-3xl sofia">Team</span>
+        <h2 className="text-3xl font-bold ">Meet our team members</h2>
+        <div className="flex justify-end items-center mt-6">
+          <div className="flex gap-4 md:hidden">
+            <motion.button
+              onClick={prevSlide}
+              className="w-20 h-20 rounded-full border-2 border-black flex items-center justify-center text-black"
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
+              aria-label="Previous slide"
             >
-              <Image
-                src={member.image}
-                alt={member.name}
-                width={300}
-                height={300}
-                className="transition-transform duration-300 "
-                objectFit="cover"
-              />
-              <motion.div
-                className="absolute inset-0 opacity-0 transition-opacity duration-300"
-                initial="hidden"
-                whileHover="visible"
-                variants={overlayVariants}
-              >
-                <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <motion.h3
-                    className="text-xl font-bold mb-1"
-                    initial={{ y: 20, opacity: 0 }}
-                    whileHover={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {member.name}
-                  </motion.h3>
-                  <motion.p
-                    className="text-sm"
-                    initial={{ y: 20, opacity: 0 }}
-                    whileHover={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.3, delay: 0.1 }}
-                  >
-                    {member.role}
-                  </motion.p>
-                </div>
-              </motion.div>
-            </motion.div>
-          </motion.div>
+              <ArrowLeft className="w-12 h-12" />
+            </motion.button>
+            <motion.button
+              onClick={nextSlide}
+              className="w-20 h-20 rounded-full border-2 border-black flex items-center justify-center text-black"
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
+              aria-label="Next slide"
+            >
+              <ArrowRight className="w-12 h-12" />
+            </motion.button>
+          </div>
+        </div>
+      </div>
+
+      <div className="md:hidden">
+        <div className="relative rounded-3xl overflow-hidden">
+          <Image
+            src={teamMembers[currentSlide].image}
+            alt={teamMembers[currentSlide].name}
+            width={400}
+            height={500}
+            className="w-full h-[700px] object-cover"
+          />
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/30 via-black/20 to-transparent backdrop-blur-lg p-6 rounded-2xl">
+            <h3 className="text-3xl font-semibold text-black">
+              {teamMembers[currentSlide].name}
+            </h3>
+            <p className="text-xl my-3">{teamMembers[currentSlide].role}</p>
+            <div className="flex gap-4">
+              <div className="rounded-full p-4 bg-black">
+                <FacebookIcon stroke="white" fill="white" className="w-6 h-6" />
+              </div>
+              <div className="rounded-full p-4 bg-black">
+                <InstagramIcon stroke="white" className="w-6 h-6" />
+              </div>
+              <div className="rounded-full p-4 bg-black">
+                <LinkedinIcon stroke="white" fill="white" className="w-6 h-6" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-8">
+        {teamMembers.map((member, index) => (
+          <div
+            key={index}
+            className="relative group rounded-lg overflow-hidden shadow-lg"
+          >
+            <Image
+              src={member.image}
+              alt={member.name}
+              width={300}
+              height={300}
+              className="w-full h-[300px] object-cover"
+            />
+          </div>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 }

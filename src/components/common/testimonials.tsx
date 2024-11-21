@@ -19,6 +19,7 @@ export default function Testimonials() {
       feedback:
         "Objectively visualize error-free technology for B2B alignment. Monotonectally harness an expanded array of models via effective collaboration.",
       image: "/img/client.png",
+      number: "66",
     },
     {
       id: 2,
@@ -28,6 +29,7 @@ export default function Testimonials() {
       feedback:
         "Objectively visualize error-free technology for B2B alignment. Monotonectally harness an expanded array of models via effective collaboration.",
       image: "/img/client.png",
+      number: "67",
     },
     {
       id: 3,
@@ -37,6 +39,7 @@ export default function Testimonials() {
       feedback:
         "Objectively visualize error-free technology for B2B alignment. Monotonectally harness an expanded array of models via effective collaboration.",
       image: "/img/client.png",
+      number: "68",
     },
   ];
 
@@ -66,38 +69,6 @@ export default function Testimonials() {
     },
   };
 
-  const imageVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.5 },
-    },
-  };
-
-  const starsVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const starItemVariants = {
-    hidden: { opacity: 0, scale: 0 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 200,
-        damping: 10,
-      },
-    },
-  };
-
   return (
     <section className="py-16 md:py-32 bg-[url('/img/service-about-bg.png')] bg-cover">
       <div className="container mx-auto px-4">
@@ -122,98 +93,130 @@ export default function Testimonials() {
           </motion.h2>
         </motion.div>
 
-        <Carousel
-          opts={{
-            align: "start",
-            dragFree: true,
-          }}
-          className="w-full p-2"
-        >
-          <CarouselContent className="-ml-4">
-            {testimonials.map((testimonial, index) => (
-              <CarouselItem key={testimonial.id} className="pl-4 basis-[45%]">
-                <motion.div
-                  className="bg-white p-6 rounded-lg flex gap-6 shadow-sm"
-                  initial="hidden"
-                  whileInView="visible"
-                  whileHover="hover"
-                  viewport={{ once: true, margin: "-100px" }}
-                  variants={cardVariants}
-                  custom={index}
-                >
-                  <div className="flex-shrink-0">
-                    <motion.div
-                      className="relative w-36 h-40"
-                      variants={imageVariants}
-                    >
+        {/* Mobile View */}
+        <div className="md:hidden">
+          <Carousel
+            opts={{
+              align: "center",
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {testimonials.map((testimonial) => (
+                <CarouselItem key={testimonial.id}>
+                  <div className="px-4 text-center">
+                    <div className="relative mb-12 mx-auto w-64 h-64">
                       <Image
                         src={testimonial.image}
                         alt={testimonial.name}
                         fill
-                        className="object-cover"
+                        className="object-cover rounded-lg"
                       />
-                      <motion.img
-                        src="/icons/testimonial-icon.png"
-                        className="absolute -bottom-8 right-[28%] items-center justify-center"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 }}
-                      />
-                    </motion.div>
-                  </div>
+                      <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-[#DE2329] rounded-full flex items-center justify-center text-white text-xl font-bold">
+                        {testimonial.number}
+                      </div>
+                    </div>
 
-                  <div className="flex-1">
-                    <motion.p
-                      className="text-gray-600 mb-6 text-base leading-relaxed"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.2 }}
-                    >
+                    <p className="text-gray-600 mb-8 text-base leading-relaxed text-start">
                       {testimonial.feedback}
-                    </motion.p>
+                    </p>
 
-                    <motion.div
-                      className="border-t border-gray-200 pt-4"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.3 }}
-                    >
-                      <div className="flex justify-between items-center">
-                        <motion.div
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.4 }}
-                        >
-                          <h3 className="font-bold text-lg">
-                            {testimonial.name}
-                          </h3>
-                          <p className="text-gray-600 text-sm">
-                            {testimonial.role}
-                          </p>
-                        </motion.div>
-                        <motion.div
-                          className="flex gap-1"
-                          variants={starsVariants}
-                          initial="hidden"
-                          animate="visible"
-                        >
-                          {[...Array(testimonial.rating)].map((_, i) => (
-                            <motion.div key={i} variants={starItemVariants}>
+                    <div className="space-y-2 flex justify-between text-start">
+                      <div>
+                        <h3 className="font-bold text-xl text-[#002A18]">
+                          {testimonial.name}
+                        </h3>
+                        <p className="text-gray-600">{testimonial.role}</p>
+                      </div>
+                      <div className="flex gap-1 justify-center mt-2">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <Star
+                            key={i}
+                            size={20}
+                            className="fill-[#DE2329] text-[#DE2329]"
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        </div>
+
+        {/* Desktop View */}
+        <div className="hidden md:block">
+          <Carousel
+            opts={{
+              align: "start",
+              dragFree: true,
+            }}
+            className="w-full p-2"
+          >
+            <CarouselContent className="-ml-4">
+              {testimonials.map((testimonial, index) => (
+                <CarouselItem key={testimonial.id} className="pl-4 basis-[45%]">
+                  <motion.div
+                    className="bg-white p-6 rounded-lg flex gap-6 shadow-sm"
+                    initial="hidden"
+                    whileInView="visible"
+                    whileHover="hover"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={cardVariants}
+                    custom={index}
+                  >
+                    <div className="flex-shrink-0">
+                      <div className="relative w-36 h-40">
+                        <Image
+                          src={testimonial.image}
+                          alt={testimonial.name}
+                          fill
+                          className="object-cover"
+                        />
+                        <motion.img
+                          src="/icons/testimonial-icon.png"
+                          className="absolute -bottom-8 right-[28%] items-center justify-center"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.3 }}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="flex-1">
+                      <p className="text-gray-600 mb-6 text-base leading-relaxed">
+                        {testimonial.feedback}
+                      </p>
+
+                      <div className="border-t border-gray-200 pt-4">
+                        <div className="flex justify-between items-center">
+                          <div>
+                            <h3 className="font-bold text-lg">
+                              {testimonial.name}
+                            </h3>
+                            <p className="text-gray-600 text-sm">
+                              {testimonial.role}
+                            </p>
+                          </div>
+                          <div className="flex gap-1">
+                            {[...Array(testimonial.rating)].map((_, i) => (
                               <Star
+                                key={i}
                                 size={16}
                                 className="fill-[#DE2329] text-[#DE2329]"
                               />
-                            </motion.div>
-                          ))}
-                        </motion.div>
+                            ))}
+                          </div>
+                        </div>
                       </div>
-                    </motion.div>
-                  </div>
-                </motion.div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
+                    </div>
+                  </motion.div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        </div>
       </div>
     </section>
   );
