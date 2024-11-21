@@ -54,7 +54,7 @@ export default function Service() {
           backgroundBlendMode: "overlay",
         }}
       />
-      <div className="absolute inset-0 bg-black/10" />
+      <div className="absolute inset-0 bg-black/5" />
       <div className="relative">
         <div className="text-center mb-16">
           <span className="text-[#DE2329] font-serif text-3xl sofia">
