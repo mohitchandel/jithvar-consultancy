@@ -1,8 +1,8 @@
 import React from "react";
-import { cn } from "@/lib/utils";
 import Marquee from "@/components/ui/marquee";
 
-const services = [
+// Defining the services array with a type
+const services: string[] = [
   "App Design",
   "Website design",
   "App Development",
@@ -13,11 +13,12 @@ const services = [
   "Software Development",
 ];
 
-const MarqueeSection = () => {
+const MarqueeSection: React.FC = () => {
   return (
-    <div className="relative flex flex-col w-full overflow-hidden  py-2">
+    <div className="relative flex flex-col w-full overflow-hidden py-2">
+      {/* First Marquee */}
       <Marquee
-        pauseOnHover
+        pauseOnHover={true} // ensure the correct type is passed for pauseOnHover
         className="[--duration:20s] text-white font-medium bg-[#DE2329]"
       >
         {services.map((service, index) => (
@@ -27,13 +28,15 @@ const MarqueeSection = () => {
           </div>
         ))}
       </Marquee>
+
+      {/* Second Marquee with reversed content */}
       <Marquee
-        reverse
-        pauseOnHover
+        reverse={true} // ensure the correct type is passed for reverse
+        pauseOnHover={true} // ensure the correct type is passed for pauseOnHover
         className="[--duration:20s] font-medium bg-black text-[#DE2329]"
       >
         {services
-          .slice()
+          .slice() // Creating a new array to reverse it
           .reverse()
           .map((service, index) => (
             <div key={index} className="flex items-center gap-4">

@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Mail, ChevronRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Mail } from "lucide-react";
 import Image from "next/image";
 
 export default function ServiceCarousel() {
@@ -119,7 +119,7 @@ export default function ServiceCarousel() {
                 </div>
                 <img
                   className="absolute -bottom-10 right-[45%]  rounded-full flex items-center justify-center transition-all"
-                  src="/img/arrow-icon.png"
+                  src="/icons/arrow-icon.png"
                 />
               </div>
             ))}

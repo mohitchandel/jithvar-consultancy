@@ -1,17 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Roboto, Sofia } from "next/font/google";
+import { Roboto } from "next/font/google";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 const roboto = Roboto({
   weight: ["100", "300", "400", "500", "700", "900"],
   subsets: ["latin"],
   variable: "--font-roboto",
-});
-
-const sofia = Sofia({
-  weight: ["400"],
-  subsets: ["latin"],
-  variable: "--font-sofia",
 });
 
 export const metadata: Metadata = {
@@ -26,7 +22,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={roboto.variable}>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

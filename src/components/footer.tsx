@@ -24,7 +24,7 @@ export default function Footer() {
           <div className="md:flex md:flex-col md:items-center">
             <div className="flex items-start space-x-3 md:items-center">
               <img
-                src="/img/locationIcon.svg"
+                src="/icons/locationIcon.svg"
                 alt="Location"
                 className="w-5 h-5 mt-1 md:mt-0 md:w-12 md:h-12"
               />
@@ -41,7 +41,7 @@ export default function Footer() {
           <div className="md:flex md:flex-col md:items-center">
             <div className="flex items-start space-x-3 md:items-center">
               <img
-                src="/img/phoneIcon.svg"
+                src="/icons/phoneIcon.svg"
                 alt="Phone"
                 className="w-5 h-5 mt-1 md:mt-0 md:w-12 md:h-12"
               />
@@ -55,7 +55,7 @@ export default function Footer() {
           <div className="md:flex md:flex-col md:items-center">
             <div className="flex items-start space-x-3 md:items-center">
               <img
-                src="/img/emailIcon.svg"
+                src="/icons/emailIcon.svg"
                 alt="Email"
                 className="w-5 h-5 mt-1 md:mt-0 md:w-12 md:h-12"
               />

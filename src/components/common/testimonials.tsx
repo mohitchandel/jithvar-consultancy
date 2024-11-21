@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Quote, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -71,7 +71,7 @@ export default function Testimonials() {
                         className="object-cover"
                       />
                       <img
-                        src="/img/testimonial-icon.png"
+                        src="/icons/testimonial-icon.png"
                         className="absolute -bottom-8 right-[28%] items-center justify-center "
                       />
                     </div>
