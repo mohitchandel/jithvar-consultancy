@@ -1,16 +1,75 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Check } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function About() {
   const circleOneImage = "/img/about-img.png";
 
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6 },
+    },
+  };
+
+  const fadeInLeft = {
+    hidden: { opacity: 0, x: -50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.6 },
+    },
+  };
+
+  const fadeInRight = {
+    hidden: { opacity: 0, x: 50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.6 },
+    },
+  };
+
+  const listItemVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.3 },
+    },
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
   return (
     <section className="container mx-auto px-4 py-16 md:py-24">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div className="relative w-full">
+        <motion.div
+          className="relative w-full"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInLeft}
+        >
           <div className="relative w-full h-[300px] sm:h-[400px] md:h-[600px] mx-auto">
-            <div className="w-full h-full rounded-lg overflow-hidden  ">
+            <motion.div
+              className="w-full h-full rounded-lg overflow-hidden"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
               <Image
                 src={circleOneImage}
                 alt="Nature Image"
@@ -18,40 +77,64 @@ export default function About() {
                 height={600}
                 className="object-contain w-full h-full"
               />
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="space-y-6 bg-[url('/img/service-about-bg.png')] bg-no-repeat bg-cover bg-center p-8">
-          <span className="text-[#DE2329] font-serif text-2xl sofia">
+        <motion.div
+          className="space-y-6 bg-[url('/img/service-about-bg.png')] bg-no-repeat bg-cover bg-center p-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInRight}
+        >
+          <motion.span
+            className="text-[#DE2329] font-serif text-2xl sofia"
+            variants={fadeInUp}
+          >
             About Business
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#002A18] leading-tight">
+          </motion.span>
+
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#002A18] leading-tight"
+            variants={fadeInUp}
+          >
             Smart and effective business solutions.
-          </h2>
-          <p className="text-gray-600 text-lg sm:text-xl">
+          </motion.h2>
+
+          <motion.p
+            className="text-gray-600 text-lg sm:text-xl"
+            variants={fadeInUp}
+          >
             We are excited for our work and how it positively impacts clients.
             With over 12 years of experience we have been constantly providing
             excellent solutions.
-          </p>
+          </motion.p>
 
-          <ul className="space-y-4">
+          <motion.ul className="space-y-4" variants={containerVariants}>
             {[
               "Managed Services and Products",
               "Flexibility and Adaptability",
               "Competitive Advantage",
               "Custom design and branding services",
             ].map((item, index) => (
-              <li key={index} className="flex items-center gap-3">
-                <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#DE2329]/10 flex items-center justify-center">
+              <motion.li
+                key={index}
+                className="flex items-center gap-3"
+                variants={listItemVariants}
+              >
+                <motion.span
+                  className="flex-shrink-0 w-5 h-5 rounded-full bg-[#DE2329]/10 flex items-center justify-center"
+                  whileHover={{ scale: 1.2 }}
+                >
                   <Check className="w-3 h-3 text-[#DE2329]" />
-                </span>
+                </motion.span>
                 <span className="text-gray-700">{item}</span>
-              </li>
+              </motion.li>
             ))}
-          </ul>
+          </motion.ul>
 
-          <div className="flex gap-4 pt-4">
+          <motion.div className="flex gap-4 pt-4" variants={fadeInUp}>
             <Link
               href="/services"
               className="bg-gradient-to-r from-[#DE2329] to-[#A70909] text-white py-3 px-8 rounded-lg hover:bg-[#DE2329] transition-colors"
@@ -64,8 +147,8 @@ export default function About() {
             >
               Discover More
             </Link>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

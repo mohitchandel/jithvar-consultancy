@@ -1,16 +1,82 @@
+"use client";
+
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 const CTASection = () => {
-  return (
-    <div className="relative h-[600px] w-full overflow-hidden">
-      <div className="absolute inset-0 bg-[#001D08]" />
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+      },
+    },
+  };
 
-      <div
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const scaleIn = {
+    hidden: { scale: 0.8, opacity: 0 },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
+      },
+    },
+  };
+
+  const buttonHover = {
+    hover: {
+      scale: 1.05,
+      transition: {
+        duration: 0.2,
+        type: "spring",
+        stiffness: 400,
+        damping: 10,
+      },
+    },
+    tap: {
+      scale: 0.95,
+    },
+  };
+
+  return (
+    <motion.div
+      className="relative h-[600px] w-full overflow-hidden"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+    >
+      <motion.div
+        className="absolute inset-0 bg-[#001D08]"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+      />
+
+      <motion.div
         className="absolute inset-0 bg-cover bg-center z-0 opacity-30"
         style={{
           backgroundImage: "url('/img/cta-bg.png')",
         }}
+        initial={{ scale: 1.1 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 1.5 }}
       />
 
       <div className="absolute top-0 left-0 w-full">
@@ -29,38 +95,62 @@ const CTASection = () => {
         />
       </div>
 
-      <div className="relative z-10 h-[600px] container mx-auto px-4 flex flex-col items-center justify-center  text-center py-20">
-        <span className="text-[#DE2329] font-medium mb-2 text-2xl sofia">
+      <motion.div
+        className="relative z-10 h-[600px] container mx-auto px-4 flex flex-col items-center justify-center text-center py-20"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <motion.span
+          className="text-[#DE2329] font-medium mb-2 text-2xl sofia"
+          variants={fadeInUp}
+        >
           Talk to an Expert
-        </span>
+        </motion.span>
 
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 max-w-3xl leading-tight">
+        <motion.h1
+          className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 max-w-3xl leading-tight"
+          variants={scaleIn}
+        >
           Do you have an emergency web design service?
-        </h1>
+        </motion.h1>
 
-        <p className="text-gray-200 mb-10 text-lg">
+        <motion.p className="text-gray-200 mb-10 text-lg" variants={fadeInUp}>
           Need any kind Web & Design service,{" "}
-          <a href="#contact" className="text-red-500 hover:underline">
+          <motion.a
+            href="#contact"
+            className="text-red-500 hover:underline"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
             Contact us.
-          </a>
-        </p>
+          </motion.a>
+        </motion.p>
 
-        <div className="flex flex-col sm:flex-row gap-6 items-center">
-          <Button
-            variant="destructive"
-            className="min-w-[200px] h-12 text-lg bg-red-600 hover:bg-red-700"
-          >
-            +91 xxxxxxxxx
-          </Button>
+        <motion.div
+          className="flex flex-col sm:flex-row gap-6 items-center"
+          variants={fadeInUp}
+        >
+          <motion.div variants={buttonHover} whileHover="hover" whileTap="tap">
+            <Button
+              variant="destructive"
+              className="min-w-[200px] h-12 text-lg bg-red-600 hover:bg-red-700"
+            >
+              +91 xxxxxxxxx
+            </Button>
+          </motion.div>
 
-          <Button
-            variant="outline"
-            className="min-w-[200px] h-12 text-lg border-2 bg-transparent text-white hover:bg-white/10 transition-colors"
-          >
-            Request A Quote
-          </Button>
-        </div>
-      </div>
+          <motion.div variants={buttonHover} whileHover="hover" whileTap="tap">
+            <Button
+              variant="outline"
+              className="min-w-[200px] h-12 text-lg border-2 bg-transparent text-white hover:bg-white/10 transition-colors"
+            >
+              Request A Quote
+            </Button>
+          </motion.div>
+        </motion.div>
+      </motion.div>
 
       <div className="absolute bottom-0 left-0 w-full rotate-180">
         <div
@@ -77,7 +167,7 @@ const CTASection = () => {
           }}
         />
       </div>
-    </div>
+    </motion.div>
   );
 };
 
