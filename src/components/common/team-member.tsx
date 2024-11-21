@@ -112,11 +112,11 @@ export default function TeamMembersSection() {
                 alt={member.name}
                 width={300}
                 height={300}
-                className="transition-transform duration-300 group-hover:scale-110"
+                className="transition-transform duration-300 "
                 objectFit="cover"
               />
               <motion.div
-                className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                className="absolute inset-0 opacity-0 transition-opacity duration-300"
                 initial="hidden"
                 whileHover="visible"
                 variants={overlayVariants}
