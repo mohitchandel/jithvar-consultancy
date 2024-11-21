@@ -64,14 +64,14 @@ const CTASection = () => {
 
       <div className="absolute bottom-0 left-0 w-full rotate-180">
         <div
-          className="w-full h-32 bg-white"
+          className="w-full h-40 bg-white"
           style={{
             maskImage: "url('/img/pattern1.svg')",
             WebkitMaskImage: "url('/img/pattern1.svg')",
             maskSize: "cover",
             WebkitMaskSize: "cover",
-            maskPosition: "bottom",
-            WebkitMaskPosition: "bottom",
+            maskPosition: "0 98%",
+            WebkitMaskPosition: "0 98%",
             maskRepeat: "no-repeat",
             WebkitMaskRepeat: "no-repeat",
           }}
