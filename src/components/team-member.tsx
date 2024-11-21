@@ -27,7 +27,7 @@ export default function TeamMembersSection() {
   return (
     <section className="container mx-auto px-4 py-16 md:py-24">
       <div className="text-center mb-12">
-        <span className="text-[#DE2329] font-serif text-2xl">Team</span>
+        <span className="text-[#DE2329] font-serif text-2xl sofia">Team</span>
         <h2 className="text-4xl md:text-5xl font-bold text-[#002A18] mt-4">
           Meet our team members
         </h2>

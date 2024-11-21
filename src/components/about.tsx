@@ -23,7 +23,7 @@ export default function About() {
         </div>
 
         <div className="space-y-6 bg-[url('/img/service-about-bg.png')] bg-no-repeat bg-cover bg-center p-8">
-          <span className="text-[#DE2329] font-serif text-2xl">
+          <span className="text-[#DE2329] font-serif text-2xl sofia">
             About Business
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#002A18] leading-tight">

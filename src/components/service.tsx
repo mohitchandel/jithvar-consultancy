@@ -50,7 +50,7 @@ export default function Service() {
     <section className="py-16 md:py-24 bg-[url('/img/service-about-bg.png')] bg-cover bg-center">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <span className="text-[#DE2329] font-serif text-2xl">
+          <span className="text-[#DE2329] font-serif text-2xl sofia">
             Our Services
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-[#002A18] mt-4">

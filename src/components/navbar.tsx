@@ -5,8 +5,7 @@ export default function Navbar() {
   return (
     <header className="container mx-auto px-4 py-4 flex items-center justify-between">
       <Link href="/" className="flex items-center">
-        <span className="text-2xl font-bold">Logo</span>
-        <span className="text-2xl font-bold text-[#DE2329]">.</span>
+        <img width={120} src="/jithvar-logo.png" />
       </Link>
 
       <nav className="hidden md:flex items-center gap-8">

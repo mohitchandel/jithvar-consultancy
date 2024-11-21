@@ -49,37 +49,39 @@ export default function ServiceCarousel() {
   return (
     <section className="bg-[#DE2329] px-4 py-16 md:py-24 relative overflow-hidden">
       <div className="container mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-16">
-          <div className="space-y-6  flex">
-            <div className="w-2/3">
-              <span className="font-serif text-white text-2xl italic">
+        {/* Updated header layout to match the image */}
+        <div className="flex items-center justify-between mb-16 gap-8">
+          <div className="flex items-center gap-8 flex-1">
+            <div>
+              <span className="font-serif text-white text-3xl sofia block mb-2">
                 Creative Approach
               </span>
-              <h2 className="text-4xl md:text-5xl font-bold text-black leading-tight">
+              <h2 className="text-4xl md:text-5xl font-semibold text-white leading-tight">
                 Corporate services
               </h2>
             </div>
-            <p className="text-white text-lg">
+            <p className="text-white text-lg max-w-xl">
               We strive to develop real-world web solutions that are ideal for
               small to large projects with bespoke your custom project
               requirements.
             </p>
-            <div className="flex gap-4">
-              <button
-                onClick={prevSlide}
-                className="w-14 h-14 rounded-full border-2 border-white/20 flex items-center justify-center text-white hover:bg-white/10 transition-all"
-                aria-label="Previous slide"
-              >
-                <ArrowLeft className="w-6 h-6" />
-              </button>
-              <button
-                onClick={nextSlide}
-                className="w-14 h-14 rounded-full border-2 border-white/20 flex items-center justify-center text-white hover:bg-white/10 transition-all"
-                aria-label="Next slide"
-              >
-                <ArrowRight className="w-6 h-6" />
-              </button>
-            </div>
+          </div>
+          <div className="flex gap-4 ml-8">
+            <button
+              onClick={prevSlide}
+              className="w-14 h-14 rounded-full border-2 border-white/20 flex items-center justify-center text-white hover:bg-white/10 transition-all"
+              aria-label="Previous slide"
+            >
+              <ArrowLeft className="w-6 h-6" />
+            </button>
+
+            <button
+              onClick={nextSlide}
+              className="w-14 h-14 rounded-full border-2 border-white/20 flex items-center justify-center text-white hover:bg-white/10 transition-all"
+              aria-label="Next slide"
+            >
+              <ArrowRight className="w-6 h-6" />
+            </button>
           </div>
         </div>
 
@@ -115,12 +117,10 @@ export default function ServiceCarousel() {
                     </p>
                   </div>
                 </div>
-                <button
-                  className="absolute -bottom-7 right-[45%] w-14 h-14 rounded-full bg-[#DE2329] flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-[#d14530] shadow-md shadow-gray-200"
-                  aria-label="View service details"
-                >
-                  <ChevronRight className="w-6 h-6 text-white" />
-                </button>
+                <img
+                  className="absolute -bottom-10 right-[45%]  rounded-full flex items-center justify-center transition-all"
+                  src="/img/arrow-icon.png"
+                />
               </div>
             ))}
           </div>
@@ -128,7 +128,7 @@ export default function ServiceCarousel() {
 
         <div className="mt-24 flex items-center justify-center gap-3 text-white">
           <Mail className="w-6 h-6" />
-          <p className="text-lg">
+          <p className="text-xl">
             Save your precious time and effort spent for finding a solution.{" "}
             <Link
               href="/contact"

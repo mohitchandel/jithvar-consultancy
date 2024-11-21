@@ -6,12 +6,12 @@ export default function Herobanner() {
   return (
     <div className="w-full min-h-screen bg-white bg-[url('/img/hero-bg.png')] bg-center bg-contain">
       <div className="container mx-auto px-4 py-12 md:py-24">
-        <div className="grid md:grid-cols-2 gap-6 items-center">
+        <div className="grid md:grid-cols-2 gap-6 ">
           <div className="space-y-6">
-            <span className="text-[#DE2329] font-serif text-2xl">
+            <span className="text-[#DE2329] sofia text-2xl">
               Welcome To Jithwar
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#002A18] leading-tight">
+            <h1 className="text-4xl font-roboto md:text-5xl lg:text-6xl font-bold text-[#002A18] leading-tight">
               Web Development &<br />
               Designing
             </h1>
