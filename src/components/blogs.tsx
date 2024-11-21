@@ -33,7 +33,7 @@ export default function BlogNewsSection() {
       <div className="flex flex-col md:flex-row gap-8">
         <div className="w-full md:w-1/3">
           <div className="mb-8">
-            <span className="text-[#DE2329] font-serif text-xl">
+            <span className="text-[#DE2329] font-serif text-xl sofia">
               - Blogs & news
             </span>
             <h2 className="text-3xl font-bold text-gray-900 mt-2">
@@ -82,7 +82,7 @@ export default function BlogNewsSection() {
                     <p className="text-gray-600 text-sm mb-4">{post.excerpt}</p>
                     <Link
                       href="#"
-                      className="inline-flex items-center text-[#DE2329] text-sm font-medium"
+                      className="inline-flex items-center text-[#DE2329] text-sm font-semibold"
                     >
                       Read more
                       <ArrowRight className="w-4 h-4 ml-2" />

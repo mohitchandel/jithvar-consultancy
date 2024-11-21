@@ -5,7 +5,7 @@ import CTASection from "@/components/cta-seaction";
 import FAQSection from "@/components/faq-seactions";
 import Footer from "@/components/footer";
 import Herobanner from "@/components/hero-banner";
-import Marquee from "@/components/marquee";
+import MarqueeSection from "@/components/marquee";
 import Navbar from "@/components/navbar";
 import Service from "@/components/service";
 import ServiceCarousel from "@/components/service-carousel";
@@ -17,7 +17,7 @@ export default function Home() {
     <>
       <Navbar />
       <Herobanner />
-      <Marquee />
+      <MarqueeSection />
       <About />
       <Service />
       <ServiceCarousel />
