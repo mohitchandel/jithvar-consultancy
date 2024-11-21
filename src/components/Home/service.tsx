@@ -119,7 +119,7 @@ export default function Service() {
             <motion.div
               key={service.id}
               variants={serviceVariants}
-              className={`group relative overflow-hidden transition-all duration-500 ease-in-out ${
+              className={`group relative overflow-hidden transition-all duration-500 ease-in-out border-y-[1px] border-black ${
                 hoveredService === service.id
                   ? "bg-black/80"
                   : "bg-transparent hover:bg-black/60"
