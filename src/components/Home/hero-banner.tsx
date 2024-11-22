@@ -24,17 +24,17 @@ export default function HeroBanner() {
   ];
 
   return (
-    <section className="relative h-screen overflow-hidden">
+    <section className="relative h-fit lg:h-screen overflow-hidden">
       <div className="container mx-auto h-full">
-        <div className="flex h-full">
-          <div className="w-1/2 flex items-center">
+        <div className="flex flex-col lg:flex-row lg:h-screen">
+          <div className="w-full lg:w-1/2 flex items-center relative z-10 px-4 lg:px-0 py-20 lg:py-0">
             <div className="max-w-xl">
               <div className="flex items-center space-x-2 mb-6">
                 <span className="font-bold text-xl capitalize text-primary">
                   welcome to jithvar
                 </span>
               </div>
-              <h1 className="text-6xl font-bold tracking-tight mb-6">
+              <h1 className="text-4xl lg:text-6xl font-bold tracking-tight mb-6">
                 Web Development & Designing
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
@@ -43,7 +43,7 @@ export default function HeroBanner() {
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris.
               </p>
 
-              <div className="flex w-full max-w-sm items-center space-x-2 mb-8">
+              <div className="flex flex-wrap gap-4 mb-8">
                 <Button variant="destructive">Talk To Expert</Button>
                 <Button variant="outline">Discover More</Button>
               </div>
@@ -63,7 +63,7 @@ export default function HeroBanner() {
             </div>
           </div>
 
-          <div className="absolute top-0 right-0 w-1/2 h-full">
+          <div className="w-full h-[calc(100vh-5rem)] lg:h-full lg:w-1/2 lg:absolute lg:top-0 lg:right-0">
             <div className="relative h-full">
               <img
                 src="/img/new-bg.jpg"
@@ -75,7 +75,7 @@ export default function HeroBanner() {
               {testimonials.map((testimonial) => (
                 <motion.div
                   key={testimonial.id}
-                  className="absolute z-20"
+                  className="absolute z-20 hidden lg:block"
                   style={testimonial.position}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -106,6 +106,40 @@ export default function HeroBanner() {
                   </Card>
                 </motion.div>
               ))}
+
+              <div className="lg:hidden absolute bottom-8 left-0 right-0 px-4">
+                <div className="grid grid-cols-2 gap-4">
+                  {testimonials.map((testimonial) => (
+                    <Card key={testimonial.id} className="w-full">
+                      <CardContent className="p-4">
+                        <div className="flex flex-col space-y-3">
+                          <div className="flex items-center space-x-3">
+                            <Avatar className="h-8 w-8">
+                              <AvatarImage src={testimonial.avatar} />
+                              <AvatarFallback>
+                                {testimonial.name[0]}
+                              </AvatarFallback>
+                            </Avatar>
+                            <div>
+                              <p className="text-sm font-medium">
+                                {testimonial.name}
+                              </p>
+                              {testimonial.role && (
+                                <p className="text-xs text-muted-foreground">
+                                  {testimonial.role}
+                                </p>
+                              )}
+                            </div>
+                          </div>
+                          <p className="text-xs text-muted-foreground">
+                            {testimonial.text}
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>

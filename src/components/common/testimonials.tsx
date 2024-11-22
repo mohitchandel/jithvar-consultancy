@@ -243,7 +243,7 @@ const Testimonials: React.FC = () => {
             }}
             className="w-full"
           >
-            <CarouselContent className="-ml-4">
+            <CarouselContent className="-ml-4 py-12">
               {testimonials.map((testimonial) => (
                 <CarouselItem key={testimonial.id} className="pl-4 basis-1/2">
                   <div className="h-full">
