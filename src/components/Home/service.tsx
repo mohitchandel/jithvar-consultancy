@@ -1,195 +1,115 @@
-"use client";
+import React from "react";
+import {
+  Monitor,
+  Code,
+  Megaphone,
+  BarChart,
+  Pen,
+  Smartphone,
+  LucideIcon,
+} from "lucide-react";
 
-import { useState } from "react";
-import Image from "next/image";
-import { motion } from "framer-motion";
+interface ServiceCardProps {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+}
 
-export default function Service() {
-  const [hoveredService, setHoveredService] = useState<string | null>(
-    "web-design"
+const ServiceCard: React.FC<ServiceCardProps> = ({
+  icon: Icon,
+  title,
+  description,
+}) => {
+  return (
+    <div className="group relative overflow-hidden rounded-xl bg-white/10 p-6 transition-all duration-300 hover:bg-white/20 hover:-translate-y-1 hover:shadow-xl">
+      <div className="mb-4">
+        <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 group-hover:scale-110 group-hover:bg-[#DE2329]">
+          <Icon className="h-6 w-6" />
+        </div>
+      </div>
+      <h3 className="mb-3 text-xl font-bold text-white">{title}</h3>
+      <p className="text-white/80">{description}</p>
+      <div className="mt-4">
+        <button className="text-white hover:text-white/80 transition-colors duration-300 text-sm font-semibold">
+          Read more
+        </button>
+      </div>
+    </div>
   );
+};
 
-  const services = [
+interface ServiceType {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+}
+
+const Services: React.FC = () => {
+  const services: ServiceType[] = [
     {
-      id: "web-design",
-      title: "WEB DESIGN",
+      icon: Monitor,
+      title: "Website Development",
       description:
-        "Our web design services focus on creating visually engaging, user-friendly websites that embody your brand's essence.",
-      image: "/img/service-carousel-1.png",
+        "We Take Responsibility Of Your Best Online Presence By Our Unique Website Development Methods.",
     },
     {
-      id: "ui-ux-design",
-      title: "UI/UX DESIGN",
+      icon: Code,
+      title: "Software Development",
       description:
-        "Our web design services focus on creating visually engaging, user-friendly websites that embody your brand's essence.",
-      image: "/img/service-carousel-1.png",
+        "We Are Master Of Our Work. We Know What Solution Best Suits Your Business For Less Efforts And Max Productivity.",
     },
     {
-      id: "digital-marketing",
-      title: "DIGITAL MARKETING",
+      icon: Megaphone,
+      title: "Branding Promotion",
       description:
-        "Our digital marketing services are designed to help businesses of all sizes increase their online presence, attract more traffic, and generate leads and sales.",
-      image: "/img/service-carousel-2.png",
+        "We Design Perfect Marketing Material For Your Email And Make Sure Their Inbox Delivery.",
     },
     {
-      id: "branding",
-      title: "BRANDING",
+      icon: BarChart,
+      title: "Digital Marketing",
       description:
-        "Our web design services focus on creating visually engaging, user-friendly websites that embody your brand's essence.",
-      image: "/img/service-carousel-3.png",
+        "Our Digital Marketing Services Are Designed To Help Businesses Of All Sizes Increase Their Online Presence, Attract More Traffic.",
     },
     {
-      id: "graphics-design",
-      title: "GRAPHICS DESIGN",
+      icon: Pen,
+      title: "UI/UX & Graphics Design",
       description:
-        "Graphic Designing services that reflects your brand's personality, values, and vision",
-      image: "/img/service-carousel-4.png",
+        "Our UI/UX And Graphics Designing Services That Reflects Your Brand's Personality, Values, And Vision",
+    },
+    {
+      icon: Smartphone,
+      title: "Mobile App Development",
+      description:
+        "Best Mobile App Development Company In Lucknow Providing Various Application Development Services To Its Customers.",
     },
   ];
 
-  const headerVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  };
-
-  const serviceVariants = {
-    hidden: { opacity: 0, x: -30 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.5 },
-    },
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
   return (
-    <section className="relative py-16 md:py-24">
-      <div
-        className="absolute inset-0 bg-[url('/img/service-about-bg.png')] bg-cover bg-center"
-        style={{
-          backgroundBlendMode: "overlay",
-        }}
-      />
-      <div className="absolute inset-0 bg-black/5" />
-      <div className="relative">
-        <motion.div
-          className="text-center mb-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={containerVariants}
-        >
-          <motion.span
-            className="text-[#DE2329] font-serif text-3xl sofia"
-            variants={headerVariants}
-          >
-            Our Services
-          </motion.span>
-          <motion.h2
-            className="text-4xl md:text-5xl font-bold text-black mt-4"
-            variants={headerVariants}
-          >
-            We Provide Top Notch
-            <br />
-            Services For You
-          </motion.h2>
-        </motion.div>
+    <section className="bg-black px-4 py-16 md:py-24">
+      <div className="container mx-auto">
+        <div className="text-center mb-16">
+          <h4 className="text-white/90 text-lg mb-2">Our Services</h4>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Crafting Digital Experiences with
+          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white">
+            Design & Development Excellence
+          </h2>
+        </div>
 
-        <motion.div
-          className="space-y-6 md:space-y-0"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={containerVariants}
-        >
-          {services.map((service) => (
-            <motion.div
-              key={service.id}
-              variants={serviceVariants}
-              className={`group relative overflow-hidden transition-all duration-500 ease-in-out border-y-[1px] border-black ${
-                hoveredService === service.id
-                  ? "bg-black/80"
-                  : "bg-transparent hover:bg-black/60"
-              }`}
-              onMouseEnter={() => setHoveredService(service.id)}
-              onMouseLeave={() => setHoveredService(null)}
-            >
-              <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center py-8">
-                  <motion.div
-                    className="flex items-center justify-center md:justify-start"
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    <h3
-                      className={`text-3xl md:text-4xl font-bold transition-colors duration-500 ${
-                        hoveredService === service.id
-                          ? "text-white"
-                          : "text-black"
-                      }`}
-                    >
-                      {service.title}
-                    </h3>
-                  </motion.div>
-
-                  <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-                    <motion.div
-                      className={`relative w-full md:w-[600px] md:ml-[-300px] h-56 md:h-32 rounded-2xl overflow-hidden transition-opacity duration-500 ${
-                        hoveredService === service.id
-                          ? "opacity-100"
-                          : "opacity-0"
-                      }`}
-                      initial={{ scale: 0.9 }}
-                      animate={{
-                        scale: hoveredService === service.id ? 1 : 0.9,
-                        opacity: hoveredService === service.id ? 1 : 0,
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="flex justify-center items-center w-full h-full">
-                        <Image
-                          src={service.image}
-                          alt={service.title}
-                          layout="fill"
-                          className="object-cover"
-                        />
-                      </div>
-                    </motion.div>
-
-                    <motion.p
-                      className={`transition-colors duration-500 mt-4 md:mt-0 ${
-                        hoveredService === service.id
-                          ? "text-white"
-                          : "text-black"
-                      }`}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{
-                        opacity: hoveredService === service.id ? 1 : 0,
-                        x: hoveredService === service.id ? 0 : 20,
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {service.description}
-                    </motion.p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service, index) => (
+            <ServiceCard
+              key={index}
+              icon={service.icon}
+              title={service.title}
+              description={service.description}
+            />
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
-}
+};
+
+export default Services;

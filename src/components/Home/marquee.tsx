@@ -15,10 +15,10 @@ const services: string[] = [
 
 const MarqueeSection: React.FC = () => {
   return (
-    <div className="relative flex flex-col w-full overflow-hidden py-2">
+    <div className="relative flex flex-col w-full overflow-hidden">
       <Marquee
         pauseOnHover={true}
-        className="[--duration:70s] text-white font-medium bg-[#DE2329]"
+        className="[--duration:70s] text-white font-medium bg-black h-[100px]"
       >
         {services.map((service, index) => (
           <div key={index} className="flex items-center gap-4">
@@ -26,22 +26,6 @@ const MarqueeSection: React.FC = () => {
             <span className="text-2xl mx-2">♦</span>
           </div>
         ))}
-      </Marquee>
-
-      <Marquee
-        reverse={true}
-        pauseOnHover={true}
-        className="[--duration:70s] font-medium bg-black text-[#DE2329]"
-      >
-        {services
-          .slice()
-          .reverse()
-          .map((service, index) => (
-            <div key={index} className="flex items-center gap-4">
-              <span className="text-lg whitespace-nowrap">{service}</span>
-              <span className="text-2xl mx-2">♦</span>
-            </div>
-          ))}
       </Marquee>
     </div>
   );
