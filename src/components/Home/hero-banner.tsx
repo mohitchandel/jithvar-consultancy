@@ -65,11 +65,20 @@ export default function HeroBanner() {
 
           <div className="w-full h-[calc(100vh-5rem)] lg:h-full lg:w-1/2 lg:absolute lg:top-0 lg:right-0">
             <div className="relative h-full">
-              <img
+              {/* <img
                 src="/img/new-bg.jpg"
                 alt="Hero"
                 className="w-full h-full object-cover"
-              />
+              /> */}
+              <video
+                className="w-full h-full object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+              >
+                <source src="/video.mp4" type="video/mp4" />
+              </video>
               <div className="absolute inset-0 bg-gradient-to-b from-background/50 to-primary/50" />
 
               {testimonials.map((testimonial) => (
