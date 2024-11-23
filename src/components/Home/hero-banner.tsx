@@ -3,23 +3,147 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
+import {
+  LineChart,
+  Line,
+  AreaChart,
+  Area,
+  BarChart,
+  Bar,
+  PieChart,
+  Pie,
+  Cell,
+  ResponsiveContainer,
+} from "recharts";
+import { ArrowUpRight, Users, Code, Target, Rocket } from "lucide-react";
 
 export default function HeroBanner() {
-  const testimonials = [
+  const revenueData = [
+    { month: "Jan", value: 20 },
+    { month: "Feb", value: 28 },
+    { month: "Mar", value: 35 },
+    { month: "Apr", value: 40 },
+    { month: "May", value: 45 },
+    { month: "Jun", value: 55 },
+  ];
+
+  const projectData = [
+    { name: "Completed", value: 65 },
+    { name: "In Progress", value: 25 },
+    { name: "Planning", value: 10 },
+  ];
+
+  const performanceData = [
+    { month: "Jan", value: 80 },
+    { month: "Feb", value: 85 },
+    { month: "Mar", value: 87 },
+    { month: "Apr", value: 89 },
+    { month: "May", value: 92 },
+    { month: "Jun", value: 95 },
+  ];
+
+  const teamData = [
+    { month: "Jan", value: 10 },
+    { month: "Feb", value: 15 },
+    { month: "Mar", value: 18 },
+    { month: "Apr", value: 22 },
+    { month: "May", value: 25 },
+    { month: "Jun", value: 30 },
+  ];
+
+  const metricCards = [
     {
       id: 1,
-      name: "Lucas Davis",
-      avatar: "/placeholder.svg?height=40&width=40",
-      text: "This app transformed how we handle customer inquiries. Quick response and intuitive features.",
-      position: { top: "20%", right: "10%" },
+      title: "Revenue Growth",
+      value: "+127%",
+      description: "Year over year growth",
+      icon: <Rocket className="h-4 w-4" />,
+      position: { top: "15%", right: "15%" },
+      bg: "bg-blue-50",
+      chart: (
+        <ResponsiveContainer width="100%" height={40}>
+          <AreaChart
+            data={revenueData}
+            margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
+          >
+            <Area
+              type="monotone"
+              dataKey="value"
+              stroke="#2563EB"
+              fill="#93C5FD"
+            />
+          </AreaChart>
+        </ResponsiveContainer>
+      ),
     },
     {
       id: 2,
-      name: "Sophia Park",
-      role: "Customer support",
-      avatar: "/placeholder.svg?height=40&width=40",
-      text: "Exceptional service platform. Highly recommended!",
-      position: { bottom: "20%", left: "10%" },
+      title: "Project Success Rate",
+      value: "94%",
+      description: "Completed on time",
+      icon: <Target className="h-4 w-4" />,
+      position: { bottom: "50%", left: "10%" },
+      bg: "bg-green-50",
+      chart: (
+        <ResponsiveContainer width="100%" height={60}>
+          <PieChart>
+            <Pie
+              data={projectData}
+              cx="50%"
+              cy="50%"
+              innerRadius={20}
+              outerRadius={25}
+              fill="#22C55E"
+              dataKey="value"
+            >
+              {projectData.map((entry, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={index === 0 ? "#22C55E" : "#86EFAC"}
+                />
+              ))}
+            </Pie>
+          </PieChart>
+        </ResponsiveContainer>
+      ),
+    },
+    {
+      id: 3,
+      title: "Performance Score",
+      value: "95/100",
+      description: "Average client rating",
+      icon: <ArrowUpRight className="h-4 w-4" />,
+      position: { top: "65%", left: "10%" },
+      bg: "bg-purple-50",
+      chart: (
+        <ResponsiveContainer width="100%" height={40}>
+          <LineChart data={performanceData}>
+            <Line
+              type="monotone"
+              dataKey="value"
+              stroke="#7C3AED"
+              strokeWidth={2}
+              dot={false}
+            />
+          </LineChart>
+        </ResponsiveContainer>
+      ),
+    },
+    {
+      id: 4,
+      title: "Team Growth",
+      value: "30+",
+      description: "Expert developers",
+      icon: <Users className="h-4 w-4" />,
+      position: { bottom: "35%", right: "15%" },
+      bg: "bg-rose-50",
+      chart: (
+        <ResponsiveContainer width="100%" height={40}>
+          <BarChart data={teamData}>
+            <Bar dataKey="value" fill="#E11D48" />
+          </BarChart>
+        </ResponsiveContainer>
+      ),
     },
   ];
 
@@ -30,7 +154,7 @@ export default function HeroBanner() {
           <div className="w-full lg:w-1/2 flex items-center relative z-10 px-4 lg:px-0 py-20 lg:py-0">
             <div className="max-w-xl">
               <div className="flex items-center space-x-2 mb-6">
-                <span className="font-bold text-xl capitalize text-primary">
+                <span className="font-bold text-xl capitalize text-[#F71735]">
                   welcome to jithvar
                 </span>
               </div>
@@ -38,26 +162,31 @@ export default function HeroBanner() {
                 Web Development & Designing
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+                Transform your digital presence with our expert web development
+                and design services. We deliver innovative solutions that drive
+                real business growth.
               </p>
 
               <div className="flex flex-wrap gap-4 mb-8">
-                <Button variant="destructive">Talk To Expert</Button>
-                <Button variant="outline">Discover More</Button>
+                <Button size="lg" className="bg-[#F71735]">
+                  Talk To Expert
+                </Button>
+                <Button size="lg" className="bg-[#1F2937]">
+                  Discover More
+                </Button>
               </div>
 
               <div className="flex items-center space-x-4">
                 <div className="flex -space-x-2">
                   {["U1", "U2", "U3", "U4"].map((user) => (
                     <Avatar key={user} className="border-2 border-background">
+                      <AvatarImage src="/api/placeholder/32/32" />
                       <AvatarFallback>{user}</AvatarFallback>
                     </Avatar>
                   ))}
                 </div>
                 <span className="text-sm text-muted-foreground">
-                  100+ People gave us 5/5 Stars
+                  100+ Successful Projects Delivered
                 </span>
               </div>
             </div>
@@ -65,11 +194,6 @@ export default function HeroBanner() {
 
           <div className="w-full h-[calc(100vh-5rem)] lg:h-full lg:w-1/2 lg:absolute lg:top-0 lg:right-0">
             <div className="relative h-full">
-              {/* <img
-                src="/img/new-bg.jpg"
-                alt="Hero"
-                className="w-full h-full object-cover"
-              /> */}
               <video
                 className="w-full h-full object-cover"
                 autoPlay
@@ -81,36 +205,34 @@ export default function HeroBanner() {
               </video>
               <div className="absolute inset-0 bg-gradient-to-b from-white/50 to-black/50" />
 
-              {testimonials.map((testimonial) => (
+              {metricCards.map((card) => (
                 <motion.div
-                  key={testimonial.id}
+                  key={card.id}
                   className="absolute z-20 hidden lg:block"
-                  style={testimonial.position}
+                  style={card.position}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: testimonial.id * 0.2 }}
+                  transition={{ duration: 0.5, delay: card.id * 0.2 }}
                 >
-                  <Card className="w-[300px]">
-                    <CardContent className="p-4">
-                      <div className="flex items-center space-x-4">
-                        <Avatar>
-                          <AvatarImage src={testimonial.avatar} />
-                          <AvatarFallback>{testimonial.name[0]}</AvatarFallback>
-                        </Avatar>
+                  <Card
+                    className={`w-[240px] ${card.bg} hover:shadow-lg transition-shadow duration-300`}
+                  >
+                    <CardContent className="p-3">
+                      <div className="flex items-center justify-between mb-2">
                         <div>
-                          <p className="text-sm font-medium">
-                            {testimonial.name}
+                          <p className="text-sm font-medium text-muted-foreground">
+                            {card.title}
                           </p>
-                          {testimonial.role && (
-                            <p className="text-sm text-muted-foreground">
-                              {testimonial.role}
-                            </p>
-                          )}
-                          <p className="text-sm text-muted-foreground mt-1">
-                            {testimonial.text}
+                          <h3 className="text-xl font-bold">{card.value}</h3>
+                          <p className="text-xs text-muted-foreground">
+                            {card.description}
                           </p>
                         </div>
+                        <div className="h-6 w-6 rounded-full bg-white flex items-center justify-center">
+                          {card.icon}
+                        </div>
                       </div>
+                      {card.chart}
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -118,32 +240,24 @@ export default function HeroBanner() {
 
               <div className="lg:hidden absolute bottom-8 left-0 right-0 px-4">
                 <div className="grid grid-cols-2 gap-4">
-                  {testimonials.map((testimonial) => (
-                    <Card key={testimonial.id} className="w-full">
+                  {metricCards.map((card) => (
+                    <Card key={card.id} className={`w-full ${card.bg}`}>
                       <CardContent className="p-4">
-                        <div className="flex flex-col space-y-3">
-                          <div className="flex items-center space-x-3">
-                            <Avatar className="h-8 w-8">
-                              <AvatarImage src={testimonial.avatar} />
-                              <AvatarFallback>
-                                {testimonial.name[0]}
-                              </AvatarFallback>
-                            </Avatar>
-                            <div>
-                              <p className="text-sm font-medium">
-                                {testimonial.name}
-                              </p>
-                              {testimonial.role && (
-                                <p className="text-xs text-muted-foreground">
-                                  {testimonial.role}
-                                </p>
-                              )}
-                            </div>
+                        <div className="flex items-center justify-between mb-2">
+                          <div>
+                            <p className="text-sm font-medium text-muted-foreground">
+                              {card.title}
+                            </p>
+                            <h3 className="text-xl font-bold">{card.value}</h3>
                           </div>
-                          <p className="text-xs text-muted-foreground">
-                            {testimonial.text}
-                          </p>
+                          <div className="h-8 w-8 rounded-full bg-white flex items-center justify-center">
+                            {card.icon}
+                          </div>
                         </div>
+                        <p className="text-xs text-muted-foreground mb-2">
+                          {card.description}
+                        </p>
+                        {card.chart}
                       </CardContent>
                     </Card>
                   ))}
