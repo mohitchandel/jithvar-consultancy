@@ -27,7 +27,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 z-50 w-full transition-all duration-200 ${
+      className={`fixed top-0 z-50 w-full transition-all duration-200 bg-white ${
         hasScrolled ? " bg-white" : "bg-transparent"
       }`}
     >
@@ -166,12 +166,6 @@ const Navbar = () => {
                 )}
               </div>
               <Link
-                href="#testimonials"
-                className="text-md font-medium hover:text-primary"
-              >
-                Testimonials
-              </Link>
-              <Link
                 href="#blogs"
                 className="text-md font-medium hover:text-primary"
               >
@@ -187,7 +181,7 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:block flex-shrink-0">
-            <Button variant="destructive">Talk To Experts</Button>
+            <Button variant="default">Talk To Experts</Button>
           </div>
         </div>
 
@@ -289,12 +283,6 @@ const Navbar = () => {
                 )}
               </div>
               <Link
-                href="#testimonials"
-                className="block px-3 py-2 text-base font-medium hover:text-primary"
-              >
-                Testimonials
-              </Link>
-              <Link
                 href="#blogs"
                 className="block px-3 py-2 text-base font-medium hover:text-primary"
               >
@@ -307,7 +295,7 @@ const Navbar = () => {
                 Contact
               </Link>
               <div className="px-3 py-2">
-                <Button variant="destructive" className="w-full">
+                <Button variant="default" className="w-full">
                   Talk To Experts
                 </Button>
               </div>

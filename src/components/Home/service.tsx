@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import {
   Monitor,
   Code,
@@ -9,6 +10,7 @@ import {
   LucideIcon,
 } from "lucide-react";
 import Link from "next/link";
+import { BorderBeam } from "../ui/border-beam";
 
 interface ServiceCardProps {
   icon: LucideIcon;
@@ -21,14 +23,20 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   title,
   description,
 }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <div className="group relative overflow-hidden rounded-xl bg-white/10 p-6 transition-all duration-300 hover:bg-[#FC2B46] hover:-translate-y-1 hover:shadow-xl">
+    <div
+      className="group relative overflow-hidden rounded-xl bg-white/10 p-6 transition-all duration-300 hover:scale-105"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <div className="mb-4">
-        <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 group-hover:scale-110 group-hover:bg-[#1F2937]">
+        <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 group-hover:scale-110 group-hover:bg-[#FC2B46]">
           <Icon className="h-6 w-6" />
         </div>
       </div>
-      <h3 className="mb-3 text-xl font-bold text-[#FDFFFC] group-hover:text-[#1F2937] font-unbounded">
+      <h3 className="mb-3 text-xl font-bold text-[#FDFFFC] font-unbounded">
         {title}
       </h3>
       <p className="text-white/80 group-hover:text-[#FDFFFC]">{description}</p>
@@ -40,6 +48,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           Read more
         </Link>
       </div>
+      {isHovered && <BorderBeam size={150} duration={8} delay={9} />}
     </div>
   );
 };
