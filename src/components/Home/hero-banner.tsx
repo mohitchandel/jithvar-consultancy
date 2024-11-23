@@ -79,7 +79,7 @@ export default function HeroBanner() {
               >
                 <source src="/video.mp4" type="video/mp4" />
               </video>
-              <div className="absolute inset-0 bg-gradient-to-b from-background/50 to-primary/50" />
+              <div className="absolute inset-0 bg-gradient-to-b from-white/50 to-black/50" />
 
               {testimonials.map((testimonial) => (
                 <motion.div

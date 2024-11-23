@@ -1,11 +1,24 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Menu, X } from "lucide-react";
+import Link from "next/link";
 
 const Navbar = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setHasScrolled(window.scrollY > 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
@@ -13,7 +26,13 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 z-50 w-full border-b bg-white bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <nav
+      className={`fixed top-0 z-50 w-full transition-all duration-200 ${
+        hasScrolled
+          ? " bg-white bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+          : "bg-transparent"
+      }`}
+    >
       <div className="container mx-auto">
         <div className="flex h-16 items-center">
           <div className="flex-shrink-0">
@@ -33,21 +52,21 @@ const Navbar = () => {
           </div>
           <div className="hidden md:flex flex-grow justify-center">
             <div className="flex items-center space-x-8">
-              <a
+              <Link
                 href="#home"
-                className="text-sm font-medium hover:text-primary"
+                className="text-md font-medium hover:text-primary"
               >
                 Home
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#about"
-                className="text-sm font-medium hover:text-primary"
+                className="text-md font-medium hover:text-primary"
               >
                 About Us
-              </a>
+              </Link>
               <div className="relative">
                 <button
-                  className="flex items-center text-sm font-medium hover:text-primary"
+                  className="flex items-center text-md font-medium hover:text-primary"
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
                 >
                   Services
@@ -61,28 +80,28 @@ const Navbar = () => {
                         <h3 className="font-semibold mb-4">Development</h3>
                         <ul className="space-y-2">
                           <li>
-                            <a
+                            <Link
                               href="#web"
-                              className="text-sm hover:text-primary"
+                              className="text-md hover:text-primary"
                             >
                               Web Development
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a
+                            <Link
                               href="#mobile"
-                              className="text-sm hover:text-primary"
+                              className="text-md hover:text-primary"
                             >
                               Mobile Development
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a
+                            <Link
                               href="#cloud"
-                              className="text-sm hover:text-primary"
+                              className="text-md hover:text-primary"
                             >
                               Cloud Solutions
-                            </a>
+                            </Link>
                           </li>
                         </ul>
                       </div>
@@ -90,28 +109,28 @@ const Navbar = () => {
                         <h3 className="font-semibold mb-4">Design</h3>
                         <ul className="space-y-2">
                           <li>
-                            <a
+                            <Link
                               href="#ui"
-                              className="text-sm hover:text-primary"
+                              className="text-md hover:text-primary"
                             >
                               UI Design
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a
+                            <Link
                               href="#ux"
-                              className="text-sm hover:text-primary"
+                              className="text-md hover:text-primary"
                             >
                               UX Design
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a
+                            <Link
                               href="#branding"
-                              className="text-sm hover:text-primary"
+                              className="text-md hover:text-primary"
                             >
                               Branding
-                            </a>
+                            </Link>
                           </li>
                         </ul>
                       </div>
@@ -119,28 +138,28 @@ const Navbar = () => {
                         <h3 className="font-semibold mb-4">Consulting</h3>
                         <ul className="space-y-2">
                           <li>
-                            <a
+                            <Link
                               href="#strategy"
-                              className="text-sm hover:text-primary"
+                              className="text-md hover:text-primary"
                             >
                               Digital Strategy
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a
+                            <Link
                               href="#tech"
-                              className="text-sm hover:text-primary"
+                              className="text-md hover:text-primary"
                             >
                               Tech Consulting
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a
+                            <Link
                               href="#audit"
-                              className="text-sm hover:text-primary"
+                              className="text-md hover:text-primary"
                             >
                               Technical Audit
-                            </a>
+                            </Link>
                           </li>
                         </ul>
                       </div>
@@ -148,24 +167,24 @@ const Navbar = () => {
                   </div>
                 )}
               </div>
-              <a
+              <Link
                 href="#testimonials"
-                className="text-sm font-medium hover:text-primary"
+                className="text-md font-medium hover:text-primary"
               >
                 Testimonials
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#blogs"
-                className="text-sm font-medium hover:text-primary"
+                className="text-md font-medium hover:text-primary"
               >
                 Blogs
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#contact"
-                className="text-sm font-medium hover:text-primary"
+                className="text-md font-medium hover:text-primary"
               >
                 Contact
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -177,18 +196,18 @@ const Navbar = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t">
-              <a
+              <Link
                 href="#home"
                 className="block px-3 py-2 text-base font-medium hover:text-primary"
               >
                 Home
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#about"
                 className="block px-3 py-2 text-base font-medium hover:text-primary"
               >
                 About Us
-              </a>
+              </Link>
               <div>
                 <button
                   className="flex items-center w-full px-3 py-2 text-base font-medium hover:text-primary"
@@ -206,89 +225,89 @@ const Navbar = () => {
                     <div className="space-y-4">
                       <div>
                         <h3 className="px-3 py-2 font-semibold">Development</h3>
-                        <a
+                        <Link
                           href="#web"
                           className="block px-3 py-2 text-sm hover:text-primary"
                         >
                           Web Development
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                           href="#mobile"
                           className="block px-3 py-2 text-sm hover:text-primary"
                         >
                           Mobile Development
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                           href="#cloud"
                           className="block px-3 py-2 text-sm hover:text-primary"
                         >
                           Cloud Solutions
-                        </a>
+                        </Link>
                       </div>
                       <div>
                         <h3 className="px-3 py-2 font-semibold">Design</h3>
-                        <a
+                        <Link
                           href="#ui"
                           className="block px-3 py-2 text-sm hover:text-primary"
                         >
                           UI Design
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                           href="#ux"
                           className="block px-3 py-2 text-sm hover:text-primary"
                         >
                           UX Design
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                           href="#branding"
                           className="block px-3 py-2 text-sm hover:text-primary"
                         >
                           Branding
-                        </a>
+                        </Link>
                       </div>
                       <div>
                         <h3 className="px-3 py-2 font-semibold">Consulting</h3>
-                        <a
+                        <Link
                           href="#strategy"
                           className="block px-3 py-2 text-sm hover:text-primary"
                         >
                           Digital Strategy
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                           href="#tech"
                           className="block px-3 py-2 text-sm hover:text-primary"
                         >
                           Tech Consulting
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                           href="#audit"
                           className="block px-3 py-2 text-sm hover:text-primary"
                         >
                           Technical Audit
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
                 )}
               </div>
-              <a
+              <Link
                 href="#testimonials"
                 className="block px-3 py-2 text-base font-medium hover:text-primary"
               >
                 Testimonials
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#blogs"
                 className="block px-3 py-2 text-base font-medium hover:text-primary"
               >
                 Blogs
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#contact"
                 className="block px-3 py-2 text-base font-medium hover:text-primary"
               >
                 Contact
-              </a>
+              </Link>
               <div className="px-3 py-2">
                 <Button variant="destructive" className="w-full">
                   Talk To Experts

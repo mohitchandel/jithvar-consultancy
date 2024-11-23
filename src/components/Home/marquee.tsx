@@ -1,7 +1,7 @@
 import React from "react";
 import Marquee from "@/components/ui/marquee";
+import { Cross } from "lucide-react";
 
-// Defining the services array with a type
 const services: string[] = [
   "App Design",
   "Website design",
@@ -22,8 +22,12 @@ const MarqueeSection: React.FC = () => {
       >
         {services.map((service, index) => (
           <div key={index} className="flex items-center gap-4">
-            <span className="text-lg whitespace-nowrap">{service}</span>
-            <span className="text-2xl mx-2">♦</span>
+            <span className="text-xl font-bold whitespace-nowrap">
+              {service}
+            </span>
+            <span className="text-2xl mx-2">
+              <Cross className="text-primary fill-primary" />
+            </span>
           </div>
         ))}
       </Marquee>
