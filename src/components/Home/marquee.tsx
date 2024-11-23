@@ -22,7 +22,7 @@ const MarqueeSection: React.FC = () => {
       >
         {services.map((service, index) => (
           <div key={index} className="flex items-center gap-4">
-            <span className="text-xl font-bold whitespace-nowrap">
+            <span className="text-2xl font-bold whitespace-nowrap font-unbounded">
               {service}
             </span>
             <span className="text-2xl mx-2">

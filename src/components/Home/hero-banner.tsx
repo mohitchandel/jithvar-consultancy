@@ -15,7 +15,7 @@ import {
   Cell,
   ResponsiveContainer,
 } from "recharts";
-import { ArrowUpRight, Users, Code, Target, Rocket } from "lucide-react";
+import { ArrowUpRight, Users, Target, Rocket } from "lucide-react";
 
 export default function HeroBanner() {
   const revenueData = [
@@ -140,7 +140,7 @@ export default function HeroBanner() {
       chart: (
         <ResponsiveContainer width="100%" height={40}>
           <BarChart data={teamData}>
-            <Bar dataKey="value" fill="#E11D48" />
+            <Bar dataKey="value" fill="#FC2B46" />
           </BarChart>
         </ResponsiveContainer>
       ),
@@ -153,12 +153,12 @@ export default function HeroBanner() {
         <div className="flex flex-col lg:flex-row lg:h-screen">
           <div className="w-full lg:w-1/2 flex items-center relative z-10 px-4 lg:px-0 py-20 lg:py-0">
             <div className="max-w-xl">
-              <div className="flex items-center space-x-2 mb-6">
-                <span className="font-bold text-xl capitalize text-[#F71735]">
-                  welcome to jithvar
+              <div className="flex items-center space-x-2 mb-6 capitalize">
+                <span className="font-semibold text-md capitalize text-[#FC2B46] font-unbounded">
+                  WELCOME TO JITHVAR
                 </span>
               </div>
-              <h1 className="text-4xl lg:text-6xl font-bold tracking-tight mb-6">
+              <h1 className="text-4xl lg:text-6xl font-bold tracking-tight mb-6 font-unbounded text-[#1F2937]">
                 Web Development & Designing
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
@@ -168,19 +168,19 @@ export default function HeroBanner() {
               </p>
 
               <div className="flex flex-wrap gap-4 mb-8">
-                <Button size="lg" className="bg-[#F71735]">
-                  Talk To Expert
+                <Button size="lg" className="bg-[#FC2B46]">
+                  Talk To Expert <ArrowUpRight />
                 </Button>
                 <Button size="lg" className="bg-[#1F2937]">
-                  Discover More
+                  Discover More <ArrowUpRight />
                 </Button>
               </div>
 
               <div className="flex items-center space-x-4">
                 <div className="flex -space-x-2">
-                  {["U1", "U2", "U3", "U4"].map((user) => (
+                  {["U1", "U2", "U3", "U4"].map((user, i) => (
                     <Avatar key={user} className="border-2 border-background">
-                      <AvatarImage src="/api/placeholder/32/32" />
+                      <AvatarImage src={`https://i.pravatar.cc/${i + 1}00`} />
                       <AvatarFallback>{user}</AvatarFallback>
                     </Avatar>
                   ))}

@@ -8,6 +8,7 @@ import {
   Smartphone,
   LucideIcon,
 } from "lucide-react";
+import Link from "next/link";
 
 interface ServiceCardProps {
   icon: LucideIcon;
@@ -21,18 +22,23 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   description,
 }) => {
   return (
-    <div className="group relative overflow-hidden rounded-xl bg-white/10 p-6 transition-all duration-300 hover:bg-white/20 hover:-translate-y-1 hover:shadow-xl">
+    <div className="group relative overflow-hidden rounded-xl bg-white/10 p-6 transition-all duration-300 hover:bg-[#FC2B46] hover:-translate-y-1 hover:shadow-xl">
       <div className="mb-4">
-        <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 group-hover:scale-110 group-hover:bg-[#DE2329]">
+        <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 group-hover:scale-110 group-hover:bg-[#1F2937]">
           <Icon className="h-6 w-6" />
         </div>
       </div>
-      <h3 className="mb-3 text-xl font-bold text-white">{title}</h3>
-      <p className="text-white/80">{description}</p>
+      <h3 className="mb-3 text-xl font-bold text-[#FDFFFC] group-hover:text-[#1F2937] font-unbounded">
+        {title}
+      </h3>
+      <p className="text-white/80 group-hover:text-[#FDFFFC]">{description}</p>
       <div className="mt-4">
-        <button className="text-white hover:text-white/80 transition-colors duration-300 text-sm font-semibold">
+        <Link
+          href="#"
+          className="text-white hover:text-white/80 transition-colors duration-300 text-sm font-semibold font-unbounded"
+        >
           Read more
-        </button>
+        </Link>
       </div>
     </div>
   );
@@ -85,14 +91,16 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <section className="bg-black px-4 py-16 md:py-24">
+    <section className="bg-[#1F2937] px-4 py-16 md:py-24">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
-          <h4 className="text-white/90 text-lg mb-2">Our Services</h4>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+        <div className="text-start mb-16">
+          <h4 className="text-lg mb-2 font-unbounded text-[#FC2B46]">
+            Our Services
+          </h4>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 font-unbounded">
             Crafting Digital Experiences with
           </h2>
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
+          <h2 className="text-3xl md:text-4xl font-bold text-white font-unbounded">
             Design & Development Excellence
           </h2>
         </div>

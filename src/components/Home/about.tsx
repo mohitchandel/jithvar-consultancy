@@ -1,155 +1,134 @@
 "use client";
-
-import Image from "next/image";
-import Link from "next/link";
-import { Check } from "lucide-react";
+import React from "react";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Activity, Users, Building, Trophy, ArrowUpRight } from "lucide-react";
 
-export default function About() {
-  const circleOneImage = "/img/about-img.png";
+interface StatProps {
+  value: string;
+  label: string;
+  icon: React.ReactNode;
+}
 
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  };
+const StatCard = ({ value, label, icon }: StatProps) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5 }}
+    className="relative rounded-2xl p-6 transition-all duration-300"
+  >
+    <div className="flex items-center gap-4">
+      <div className="flex-shrink-0">
+        <div className="p-3 rounded-xl bg-[#FC2B46]/10">
+          {React.cloneElement(icon as React.ReactElement, {
+            className: "w-6 h-6 text-[#FC2B46]",
+          })}
+        </div>
+      </div>
+      <div>
+        <div className="text-3xl font-bold tracking-tight text-[#1F2937] font-unbounded">
+          {value}
+        </div>
+        <div className="text-sm text-gray-600 mt-1">{label}</div>
+      </div>
+    </div>
+  </motion.div>
+);
 
-  const fadeInLeft = {
-    hidden: { opacity: 0, x: -50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.6 },
-    },
-  };
-
-  const fadeInRight = {
-    hidden: { opacity: 0, x: 50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.6 },
-    },
-  };
-
-  const listItemVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.3 },
-    },
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
+const About = () => {
+  const stats = [
+    { value: "14+", label: "Years of experience", icon: <Activity /> },
+    { value: "3k", label: "Projects delivered", icon: <Trophy /> },
+    { value: "1k+", label: "Satisfied clients", icon: <Users /> },
+    { value: "20", label: "Companies trust us", icon: <Building /> },
+  ];
 
   return (
-    <section className="container mx-auto px-4 py-16 md:py-24">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <motion.div
-          className="relative w-full"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeInLeft}
-        >
-          <div className="relative w-full h-[300px] sm:h-[400px] md:h-[600px] mx-auto">
+    <section className="py-24 bg-[#FDFFFC]">
+      <div className="container mx-auto px-4">
+        <div className="space-y-16 max-w-7xl mx-auto">
+          <div className="max-w-2xl">
             <motion.div
-              className="w-full h-full rounded-lg overflow-hidden"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
             >
-              <Image
-                src={circleOneImage}
-                alt="Nature Image"
-                width={600}
-                height={600}
-                className="object-contain w-full h-full"
-              />
+              <span className="inline-block text-[#FC2B46] text-md font-semibold tracking-wider uppercase font-unbounded mb-3">
+                About us
+              </span>
+              <h2 className="text-4xl sm:text-5xl font-bold text-[#1F2937] leading-tight font-unbounded">
+                We help to accelerate your business growth
+              </h2>
             </motion.div>
           </div>
-        </motion.div>
 
-        <motion.div
-          className="space-y-6 bg-[url('/img/service-about-bg.png')] bg-no-repeat bg-cover bg-center p-8"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeInRight}
-        >
-          <motion.span
-            className="text-[#DE2329] font-serif text-2xl sofia"
-            variants={fadeInUp}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative"
+            >
+              <div className="relative rounded-2xl overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#FC2B46]/20 to-transparent z-10" />
+                <img
+                  src="/img/new-bg.jpg"
+                  alt="Team collaboration"
+                  className="w-full h-[500px] object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-6 -right-6 w-64 h-64 bg-[#FC2B46]/5 rounded-full blur-3xl -z-10" />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="space-y-8"
+            >
+              <h3 className="text-xl font-semibold text-[#1F2937] capitalize font-unbounded">
+                We design disruptive brands for organizations that aspire to
+                have a positive social and environmental impact
+              </h3>
+
+              <div className="space-y-4">
+                <p className="text-gray-600 leading-relaxed">
+                  Seamlessly formulate exceptional "outside the box" thinking
+                  business e-commerce. Phasfluorescently engage end-to-end
+                  platforms before integrated functionalities.
+                </p>
+                <p className="text-gray-600 leading-relaxed">
+                  Seamlessly formulate exceptional "outside the box" thinking
+                  business e-commerce. Phasfluorescently engage end-to-end
+                  platforms before integrated functionalities.
+                </p>
+              </div>
+
+              <Button size="lg" className="bg-[#FC2B46]">
+                Talk To Expert <ArrowUpRight />
+              </Button>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
           >
-            About Business
-          </motion.span>
-
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#002A18] leading-tight"
-            variants={fadeInUp}
-          >
-            Smart and effective business solutions.
-          </motion.h2>
-
-          <motion.p
-            className="text-gray-600 text-lg sm:text-xl"
-            variants={fadeInUp}
-          >
-            We are excited for our work and how it positively impacts clients.
-            With over 12 years of experience we have been constantly providing
-            excellent solutions.
-          </motion.p>
-
-          <motion.ul className="space-y-4" variants={containerVariants}>
-            {[
-              "Managed Services and Products",
-              "Flexibility and Adaptability",
-              "Competitive Advantage",
-              "Custom design and branding services",
-            ].map((item, index) => (
-              <motion.li
-                key={index}
-                className="flex items-center gap-3"
-                variants={listItemVariants}
-              >
-                <motion.span
-                  className="flex-shrink-0 w-5 h-5 rounded-full bg-[#DE2329]/10 flex items-center justify-center"
-                  whileHover={{ scale: 1.2 }}
-                >
-                  <Check className="w-3 h-3 text-[#DE2329]" />
-                </motion.span>
-                <span className="text-gray-700">{item}</span>
-              </motion.li>
+            {stats.map((stat, index) => (
+              <StatCard key={index} {...stat} />
             ))}
-          </motion.ul>
-
-          <motion.div className="flex gap-4 pt-4" variants={fadeInUp}>
-            <Link
-              href="/services"
-              className="bg-gradient-to-r from-[#DE2329] to-[#A70909] text-white py-3 px-8 rounded-lg hover:bg-[#DE2329] transition-colors"
-            >
-              Our services
-            </Link>
-            <Link
-              href="/discover"
-              className="border-2 border-gray-200 text-black px-6 py-3 rounded-md hover:bg-gray-50 transition-colors"
-            >
-              Discover More
-            </Link>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
-}
+};
+
+export default About;

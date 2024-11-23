@@ -28,9 +28,7 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 z-50 w-full transition-all duration-200 ${
-        hasScrolled
-          ? " bg-white bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
-          : "bg-transparent"
+        hasScrolled ? " bg-white" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto">

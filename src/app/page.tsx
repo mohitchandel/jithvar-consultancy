@@ -16,8 +16,8 @@ export default function Home() {
       <Herobanner />
       <MarqueeSection />
       <About />
-      <PortFolio />
       <Service />
+      <PortFolio />
       <TeamMembersSection />
       <Testimonials />
       <CTASection />
