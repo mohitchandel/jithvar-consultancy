@@ -97,14 +97,14 @@ const About = () => {
 
               <div className="space-y-4">
                 <p className="text-gray-600 leading-relaxed">
-                  Seamlessly formulate exceptional "outside the box" thinking
-                  business e-commerce. Phasfluorescently engage end-to-end
-                  platforms before integrated functionalities.
+                  Seamlessly formulate exceptional &quot;outside the box&quot;
+                  thinking business e-commerce. Phasfluorescently engage
+                  end-to-end platforms before integrated functionalities.
                 </p>
                 <p className="text-gray-600 leading-relaxed">
-                  Seamlessly formulate exceptional "outside the box" thinking
-                  business e-commerce. Phasfluorescently engage end-to-end
-                  platforms before integrated functionalities.
+                  Seamlessly formulate exceptional &quot;outside the box&quot;
+                  thinking business e-commerce. Phasfluorescently engage
+                  end-to-end platforms before integrated functionalities.
                 </p>
               </div>
 
