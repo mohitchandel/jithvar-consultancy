@@ -47,7 +47,7 @@ const About = () => {
   return (
     <section className="py-24 bg-[#FDFFFC]">
       <div className="container mx-auto px-4">
-        <div className="space-y-16 max-w-7xl mx-auto">
+        <div className="space-y-16 container mx-auto">
           <div className="max-w-2xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
