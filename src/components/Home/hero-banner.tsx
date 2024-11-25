@@ -17,7 +17,7 @@ import {
 } from "recharts";
 import { ArrowUpRight, Users, Target, Rocket } from "lucide-react";
 
-export default function HeroBanner() {
+function HeroBanner() {
   const revenueData = [
     { month: "Jan", value: 20 },
     { month: "Feb", value: 28 },
@@ -270,3 +270,5 @@ export default function HeroBanner() {
     </section>
   );
 }
+
+export default HeroBanner;

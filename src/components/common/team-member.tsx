@@ -1,38 +1,37 @@
 import { Button } from "@/components/ui/button";
 import { Facebook, Twitter, Linkedin, ArrowUpRight } from "lucide-react";
-import Image from "next/image";
 
-export default function TeamMembersSection() {
+function TeamMembersSection() {
   const teamMembers = [
     {
       name: "Ishant Sharma",
       role: "Web Designer",
-      image: "/img/team-one.png",
+      image: "https://i.pravatar.cc/300",
     },
     {
       name: "Ishant Sharma",
       role: "Web Designer",
-      image: "/img/team-two.png",
+      image: "https://i.pravatar.cc/400",
     },
     {
       name: "Ishant Sharma",
       role: "Web Designer",
-      image: "/img/team-three.png",
+      image: "https://i.pravatar.cc/500",
     },
     {
       name: "Ishant Sharma",
       role: "Web Designer",
-      image: "/img/team-four.png",
+      image: "https://i.pravatar.cc/600",
     },
     {
       name: "Ishant Sharma",
       role: "Web Designer",
-      image: "/img/team-one.png",
+      image: "https://i.pravatar.cc/700",
     },
     {
       name: "Ishant Sharma",
       role: "Web Designer",
-      image: "/img/team-two.png",
+      image: "https://i.pravatar.cc/800",
     },
   ];
 
@@ -46,7 +45,7 @@ export default function TeamMembersSection() {
             <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight font-unbounded">
               Meet our team
             </h2>
-            <p className="text-gray-400 text-md leading-relaxed max-w-md">
+            <p className="text-gray-400 text-lg leading-relaxed max-w-md">
               Meet the passionate minds behind Jitvar! Our team of skilled
               designers, developers, and strategists is dedicated to bringing
               your ideas to life with creativity, precision, and innovation.
@@ -59,10 +58,9 @@ export default function TeamMembersSection() {
             {teamMembers.map((member, index) => (
               <div key={index} className="space-y-4 duration-300 ">
                 <div className="aspect-square relative overflow-hidden rounded-lg">
-                  <Image
+                  <img
                     src={member.image}
                     alt={member.name}
-                    fill
                     className="object-cover transition-all duration-300 hover:scale-105"
                   />
                 </div>
@@ -100,3 +98,5 @@ export default function TeamMembersSection() {
     </section>
   );
 }
+
+export default TeamMembersSection;

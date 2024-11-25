@@ -36,7 +36,7 @@ const StatCard = ({ value, label, icon }: StatProps) => (
   </motion.div>
 );
 
-const About = () => {
+function About() {
   const stats = [
     { value: "14+", label: "Years of experience", icon: <Activity /> },
     { value: "3k", label: "Projects delivered", icon: <Trophy /> },
@@ -73,11 +73,12 @@ const About = () => {
               className="relative"
             >
               <div className="relative rounded-2xl overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#FC2B46]/20 to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-tr  z-10" />
                 <img
-                  src="/img/new-bg.jpg"
+                  // src="/img/new-bg.jpg"
+                  src="/img/about-img.png"
                   alt="Team collaboration"
-                  className="w-full h-[500px] object-cover"
+                  className="w-full "
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 w-64 h-64 bg-[#FC2B46]/5 rounded-full blur-3xl -z-10" />
@@ -129,6 +130,6 @@ const About = () => {
       </div>
     </section>
   );
-};
+}
 
 export default About;

@@ -89,7 +89,7 @@ const services = [
   },
 ];
 
-const Portfolio = () => {
+function Portfolio() {
   const [hoveredId, setHoveredId] = useState("01");
 
   return (
@@ -236,35 +236,6 @@ const Portfolio = () => {
       </div>
     </div>
   );
-};
-
-// Add these custom animations to your global CSS
-const style = document.createElement("style");
-style.textContent = `
-  @keyframes fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  @keyframes slide-up {
-    from { 
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-fade-in {
-    animation: fade-in 0.5s ease-out forwards;
-  }
-
-  .animate-slide-up {
-    animation: slide-up 0.5s ease-out forwards;
-  }
-`;
-document.head.appendChild(style);
+}
 
 export default Portfolio;

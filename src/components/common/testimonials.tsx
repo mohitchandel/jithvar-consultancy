@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight, Quote, StarIcon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Item } from "@radix-ui/react-accordion";
 
 interface Testimonial {
   id: number;
@@ -23,7 +22,7 @@ const Testimonials = () => {
       role: "Web Designer",
       content:
         "Jitvhar transformed our outdated website into a modern, user-friendly platform that perfectly represents our brand. Their attention to detail and seamless development process exceeded our expectations. Highly recommend their services!",
-      avatar: "/api/placeholder/32/32",
+      avatar: "https://i.pravatar.cc/300",
     },
     {
       id: 2,
@@ -31,7 +30,7 @@ const Testimonials = () => {
       role: "Web Designer",
       content:
         "Working with Jitvhar was a game-changer for our business. Their team delivered a beautifully designed and fully functional website that has significantly improved our customer engagement. Truly a pleasure to work with!",
-      avatar: "/api/placeholder/32/32",
+      avatar: "https://i.pravatar.cc/400",
     },
     {
       id: 3,
@@ -39,7 +38,7 @@ const Testimonials = () => {
       role: "Marketing Director",
       content:
         "The team at Jitvhar went above and beyond our expectations. They not only delivered a stunning website but also provided valuable insights that helped improve our overall digital strategy. Their expertise is unmatched!",
-      avatar: "/api/placeholder/32/32",
+      avatar: "https://i.pravatar.cc/500",
     },
     {
       id: 4,
@@ -47,7 +46,7 @@ const Testimonials = () => {
       role: "Startup Founder",
       content:
         "As a startup, we needed a partner who could understand our vision and bring it to life. Jitvhar did exactly that and more. Their innovative approach and attention to user experience helped us launch with confidence.",
-      avatar: "/api/placeholder/32/32",
+      avatar: "https://i.pravatar.cc/600",
     },
     {
       id: 5,
@@ -55,7 +54,7 @@ const Testimonials = () => {
       role: "E-commerce Manager",
       content:
         "The e-commerce solution provided by Jitvhar revolutionized our online presence. Our sales have increased by 150% since launch, and customer feedback has been overwhelmingly positive. They're truly masters of their craft!",
-      avatar: "/api/placeholder/32/32",
+      avatar: "https://i.pravatar.cc/700",
     },
     {
       id: 6,
@@ -63,7 +62,7 @@ const Testimonials = () => {
       role: "Product Owner",
       content:
         "What sets Jitvhar apart is their commitment to excellence and their collaborative approach. They took the time to understand our complex requirements and delivered a solution that exceeded our expectations in every way.",
-      avatar: "/api/placeholder/32/32",
+      avatar: "https://i.pravatar.cc/800",
     },
   ];
 

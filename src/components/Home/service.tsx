@@ -68,7 +68,7 @@ interface ServiceType {
   description: string;
 }
 
-const Services: React.FC = () => {
+function Services() {
   const services: ServiceType[] = [
     {
       icon: Monitor,
@@ -136,6 +136,6 @@ const Services: React.FC = () => {
       </div>
     </section>
   );
-};
+}
 
 export default Services;

@@ -13,7 +13,7 @@ const services: string[] = [
   "Software Development",
 ];
 
-const MarqueeSection: React.FC = () => {
+function MarqueeSection() {
   return (
     <div className="relative flex flex-col w-full overflow-hidden">
       <Marquee
@@ -33,6 +33,6 @@ const MarqueeSection: React.FC = () => {
       </Marquee>
     </div>
   );
-};
+}
 
 export default MarqueeSection;
