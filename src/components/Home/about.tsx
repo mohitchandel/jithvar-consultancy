@@ -1,47 +1,54 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
+import CountUp from "react-countup";
 import { Button } from "@/components/ui/button";
 import { Activity, Users, Building, Trophy, ArrowUpRight } from "lucide-react";
 
 interface StatProps {
-  value: string;
+  value: number;
   label: string;
   icon: React.ReactNode;
 }
 
-const StatCard = ({ value, label, icon }: StatProps) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.5 }}
-    className="relative rounded-2xl p-6 transition-all duration-300"
-  >
-    <div className="flex items-center gap-4">
-      <div className="flex-shrink-0">
-        <div className="p-3 rounded-xl bg-[#FC2B46]/10">
-          {React.cloneElement(icon as React.ReactElement, {
-            className: "w-6 h-6 text-[#FC2B46]",
-          })}
+const StatCard = ({ value, label, icon }: StatProps) => {
+  const [hasStarted, setHasStarted] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      onViewportEnter={() => setHasStarted(true)}
+      className="relative rounded-2xl p-6 transition-all duration-300"
+    >
+      <div className="flex items-center gap-4">
+        <div className="flex-shrink-0">
+          <div className="p-3 rounded-xl bg-[#FC2B46]/10">
+            {React.cloneElement(icon as React.ReactElement, {
+              className: "w-6 h-6 text-[#FC2B46]",
+            })}
+          </div>
+        </div>
+        <div>
+          <div className="text-3xl font-bold tracking-tight text-[#1F2937] font-unbounded">
+            {hasStarted ? <CountUp start={0} end={value} duration={2} /> : 0}
+            {label.includes("+") && "+"}
+          </div>
+          <div className="text-sm text-gray-600 mt-1">{label}</div>
         </div>
       </div>
-      <div>
-        <div className="text-3xl font-bold tracking-tight text-[#1F2937] font-unbounded">
-          {value}
-        </div>
-        <div className="text-sm text-gray-600 mt-1">{label}</div>
-      </div>
-    </div>
-  </motion.div>
-);
+    </motion.div>
+  );
+};
 
 function About() {
   const stats = [
-    { value: "14+", label: "Years of experience", icon: <Activity /> },
-    { value: "3k", label: "Projects delivered", icon: <Trophy /> },
-    { value: "1k+", label: "Satisfied clients", icon: <Users /> },
-    { value: "20", label: "Companies trust us", icon: <Building /> },
+    { value: 14, label: "Years of experience", icon: <Activity /> },
+    { value: 200, label: "Projects delivered", icon: <Trophy /> },
+    { value: 500, label: "Satisfied clients", icon: <Users /> },
+    { value: 40, label: "Companies trust us", icon: <Building /> },
   ];
 
   return (
@@ -75,10 +82,9 @@ function About() {
               <div className="relative rounded-2xl overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-tr  z-10" />
                 <img
-                  // src="/img/new-bg.jpg"
                   src="/img/about-img.png"
                   alt="Team collaboration"
-                  className="w-full "
+                  className="w-full"
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 w-64 h-64 bg-[#FC2B46]/5 rounded-full blur-3xl -z-10" />
@@ -120,7 +126,7 @@ function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {stats.map((stat, index) => (
               <StatCard key={index} {...stat} />

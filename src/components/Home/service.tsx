@@ -27,7 +27,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 
   return (
     <div
-      className="group relative overflow-hidden rounded-xl bg-white/10 hover:bg-[#FC2B46] p-6 transition-all duration-300 hover:scale-105"
+      className="group relative overflow-hidden rounded-xl bg-white/10 hover:bg-[#D81D20] p-6 transition-all duration-300 hover:scale-105"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -53,9 +53,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           size={150}
           duration={8}
           delay={9}
-          colorFrom="#41EAD4"
-          colorTo="#41EAD4"
-          borderWidth={2.5}
+          colorFrom="#A390E4"
+          colorTo="#A390E4"
+          borderWidth={3.5}
         />
       )}
     </div>

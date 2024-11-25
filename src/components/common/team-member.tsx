@@ -42,6 +42,7 @@ function TeamMembersSection() {
       <div className="relative z-10">
         <div className="grid lg:grid-cols-[1fr,2fr] gap-12 container mx-auto">
           <div className="space-y-6">
+            <h4 className="text-lg mb-2 font-unbounded text-[#FC2B46]">Team</h4>
             <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight font-unbounded">
               Meet our team
             </h2>

@@ -4,10 +4,6 @@ import { Button } from "@/components/ui/button";
 function CTASection() {
   return (
     <section className="relative bg-[#1F2937] min-h-[400px] flex items-center justify-center overflow-hidden py-24">
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] opacity-50">
-        <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-gray-800/50 to-transparent rounded-full transform translate-x-1/2 -translate-y-1/4"></div>
-      </div>
-
       <div className="relative max-w-3xl mx-auto px-4 text-center">
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight font-unbounded">
           Begin Your Journey

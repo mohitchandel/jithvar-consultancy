@@ -33,7 +33,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div className="space-y-6">
             <Link href="/" className="inline-block">
-              <span className="text-2xl font-bold text-white">JCS</span>
+              <img src="/jithvar-logo.png" alt="Logo" className="h-16" />
             </Link>
             <p className="text-sm leading-relaxed">
               Transforming ideas into digital reality. We&apos;re committed to
