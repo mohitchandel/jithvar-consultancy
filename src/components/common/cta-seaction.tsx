@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 function CTASection() {
   return (
-    <section className="relative bg-[#1F2937] min-h-[400px] flex items-center justify-center overflow-hidden py-24">
+    <section className="relative z-10 bg-[#1F2937] min-h-[400px] flex items-center justify-center py-24">
       <div className="relative max-w-3xl mx-auto px-4 text-center">
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight font-unbounded">
           Begin Your Journey

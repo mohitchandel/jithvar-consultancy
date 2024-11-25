@@ -120,7 +120,7 @@ function Portfolio() {
           >
             <div className="p-6">
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-8">
+                <div className="flex items-center gap-4 lg:gap-8">
                   <span className="text-sm font-light">{service.id}</span>
                   <div className="flex items-center gap-3">
                     <span
@@ -131,12 +131,12 @@ function Portfolio() {
                     >
                       {service.icon}
                     </span>
-                    <h3 className="text-xl font-semibold font-unbounded">
+                    <h3 className="text-md lg:text-xl font-semibold font-unbounded">
                       {service.title}
                     </h3>
                   </div>
                 </div>
-                <Button>
+                <Button size={"sm"}>
                   See Detail <ArrowUpRight />
                 </Button>
               </div>

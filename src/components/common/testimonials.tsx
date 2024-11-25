@@ -96,12 +96,12 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="w-full container mx-auto px-4 py-24 h-screen">
+    <div className="relative container mx-auto px-4 py-24 lg:h-screen overflow-hidden">
       <span className="inline-block text-[#FC2B46] text-md font-semibold tracking-wider uppercase font-unbounded mb-3">
         Testimonials
       </span>
       <motion.h1
-        className="text-4xl font-bold mb-8 font-unbounded"
+        className="text-4xl font-bold mb-8 font-unbounded text-center lg:text-left"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -111,13 +111,13 @@ const Testimonials = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <motion.div
-          className=" bg-[#1F2937] rounded-3xl text-white p-12 flex flex-col items-center"
+          className="bg-[#1F2937] rounded-3xl text-white p-6 lg:p-12 flex flex-col items-center"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="text-[72px] font-bold mb-4">4.8</div>
-          <div className="flex gap-1 text-yellow-400 mb-4 text-xl">
+          <div className="text-[48px] lg:text-[72px] font-bold mb-4">4.8</div>
+          <div className="flex gap-1 text-yellow-400 mb-4 text-lg lg:text-xl">
             <motion.span
               className="flex"
               initial={{ opacity: 0 }}
@@ -130,11 +130,11 @@ const Testimonials = () => {
             </motion.span>
           </div>
           <div className="text-sm text-gray-400 mb-8">(100+ REVIEWS)</div>
-          <p className="text-center text-xl font-medium max-w-md">
+          <p className="text-center text-base lg:text-xl font-medium max-w-md">
             Empowering World-Class Companies With Innovative Development
             Solutions
           </p>
-          <div className="flex gap-4 mt-12">
+          <div className="flex gap-4 mt-8 lg:mt-12">
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
@@ -154,7 +154,7 @@ const Testimonials = () => {
           </div>
         </motion.div>
 
-        <div className="lg:col-span-2 bg-[#1F2937] rounded-3xl text-white p-12 overflow-hidden">
+        <div className="lg:col-span-2 bg-[#1F2937] rounded-3xl text-white p-6 lg:p-12 overflow-hidden">
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={currentPair}
@@ -167,7 +167,7 @@ const Testimonials = () => {
                 x: { type: "spring", stiffness: 300, damping: 30 },
                 opacity: { duration: 0.2 },
               }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-12"
+              className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-12"
             >
               {testimonials
                 .slice(currentPair, currentPair + 2)
@@ -179,10 +179,10 @@ const Testimonials = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                   >
-                    <div className="text-4xl font-serif mb-6">
-                      <Quote size={64} />
+                    <div className="text-3xl lg:text-4xl font-serif mb-4 lg:mb-6">
+                      <Quote size={48} />
                     </div>
-                    <p className="text-gray-100 text-lg mb-8 flex-grow">
+                    <p className="text-gray-100 text-base lg:text-lg mb-6 lg:mb-8 flex-grow">
                       {testimonial.content}
                     </p>
                     <motion.div
@@ -194,13 +194,15 @@ const Testimonials = () => {
                       <img
                         src={testimonial.avatar}
                         alt={testimonial.author}
-                        className="w-12 h-12 rounded-full mr-4"
+                        className="w-10 h-10 lg:w-12 lg:h-12 rounded-full mr-4"
                       />
                       <div>
-                        <div className="font-medium text-lg">
+                        <div className="font-medium text-sm lg:text-lg">
                           {testimonial.author}
                         </div>
-                        <div className="text-gray-400">{testimonial.role}</div>
+                        <div className="text-gray-400 text-sm">
+                          {testimonial.role}
+                        </div>
                       </div>
                     </motion.div>
                   </motion.div>

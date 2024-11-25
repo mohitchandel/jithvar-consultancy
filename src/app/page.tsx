@@ -8,7 +8,7 @@ import HeroBanner from "@/components/Home/hero-banner";
 import MarqueeSection from "@/components/Home/marquee";
 import PortFolio from "@/components/Home/portfolio";
 import Service from "@/components/Home/service";
-// import ContactUsSection from "@/components/Home/contact-us";
+import ContactUsSection from "@/components/Home/contact-us";
 
 export default function Home() {
   return (
@@ -20,10 +20,10 @@ export default function Home() {
       <PortFolio />
       <TeamMembersSection />
       <Testimonials />
-      <CTASection />
       <BlogNewsSection />
       <FAQSection />
-      {/* <ContactUsSection /> */}
+      <CTASection />
+      <ContactUsSection />
     </>
   );
 }

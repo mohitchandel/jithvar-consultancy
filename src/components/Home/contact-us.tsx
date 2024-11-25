@@ -59,36 +59,30 @@ export default function ContactUsSection() {
   ];
 
   return (
-    <section className="bg-black text-white min-h-screen relative py-20 overflow-hidden">
+    <section className=" text-[#1F2937] min-h-screen relative py-20 overflow-hidden">
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[linear-gradient(30deg,#DE2329_12%,transparent_12.5%,transparent_87%,#DE2329_87.5%,#DE2329_100%)] bg-[length:300px_300px]" />
       </div>
 
       <div className="container mx-auto px-4 relative">
         <motion.div
-          className="text-center mb-16"
+          className="mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <motion.span
-            className="text-[#DE2329] text-2xl block mb-4"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            Contact us
-          </motion.span>
+          <h4 className="text-lg mb-2 font-unbounded text-[#FC2B46]">
+            Contact Us
+          </h4>
+
           <motion.h2
-            className="text-4xl md:text-6xl font-bold mb-6"
+            className="text-4xl font-bold mb-6 font-unbounded"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            Get a FREE 2hrs consultation
-            <br />
-            by our experts
+            Get a FREE 2hrs consultation <br /> by our experts
           </motion.h2>
         </motion.div>
 
@@ -101,20 +95,9 @@ export default function ContactUsSection() {
             className="bg-gradient-to-br from-[#DE2329] to-[#961216] rounded-3xl overflow-hidden"
           >
             <div className="p-8 md:p-12">
-              <div className="grid grid-cols-2 gap-6 mb-12">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                  className="col-span-2 md:col-span-1"
-                >
-                  <img
-                    src="/img/contact-img.png"
-                    alt="Contact us"
-                    className="w-full h-48 object-cover rounded-2xl"
-                  />
-                </motion.div>
-                <div className="col-span-2 md:col-span-1 flex items-center">
-                  <h3 className="text-2xl font-bold">
+              <div className="gap-6 mb-12">
+                <div className=" flex items-center">
+                  <h3 className="text-2xl font-bold font-unbounded text-white">
                     Let&apos;s discuss your project and make something
                     incredible together.
                   </h3>
@@ -132,10 +115,10 @@ export default function ContactUsSection() {
                   >
                     <div className="flex items-start gap-4">
                       <div className="bg-white/10 p-3 rounded-xl group-hover:bg-white/20 transition-colors">
-                        <info.icon className="w-6 h-6" />
+                        <info.icon className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-lg mb-2">
+                        <h4 className="font-semibold text-lg mb-2 font-unbounded text-white">
                           {info.title}
                         </h4>
                         {Array.isArray(info.content) ? (
@@ -173,9 +156,11 @@ export default function ContactUsSection() {
           >
             <motion.form
               onSubmit={handleSubmit}
-              className="space-y-6 bg-white/5 p-8 md:p-12 rounded-3xl backdrop-blur-sm border border-white/10"
+              className="space-y-6 bg-white/5 p-8 md:p-12 rounded-3xl backdrop-blur-sm border border-black/10"
             >
-              <h3 className="text-3xl font-bold mb-8">Send us a message</h3>
+              <h3 className="text-3xl font-bold mb-8 font-unbounded">
+                Send us a message
+              </h3>
 
               <div className="grid md:grid-cols-2 gap-6">
                 <motion.div
@@ -187,7 +172,7 @@ export default function ContactUsSection() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 outline-none focus:border-[#DE2329] transition-colors"
+                    className="w-full bg-black/5 border border-black/10 rounded-xl px-6 py-4 outline-none focus:border-[#DE2329] transition-colors"
                     placeholder="Your name"
                     required
                   />
@@ -202,7 +187,7 @@ export default function ContactUsSection() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 outline-none focus:border-[#DE2329] transition-colors"
+                    className="w-full bg-black/5 border border-black/10 rounded-xl px-6 py-4 outline-none focus:border-[#DE2329] transition-colors"
                     placeholder="Your email"
                     required
                   />
@@ -218,7 +203,7 @@ export default function ContactUsSection() {
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 outline-none focus:border-[#DE2329] transition-colors"
+                  className="w-full bg-black/5 border border-black/10 rounded-xl px-6 py-4 outline-none focus:border-[#DE2329] transition-colors"
                   placeholder="Subject"
                   required
                 />
@@ -233,7 +218,7 @@ export default function ContactUsSection() {
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 outline-none focus:border-[#DE2329] transition-colors resize-none"
+                  className="w-full bg-black/5 border border-black/10 rounded-xl px-6 py-4 outline-none focus:border-[#DE2329] transition-colors resize-none"
                   placeholder="Your message"
                   required
                 />
@@ -242,7 +227,7 @@ export default function ContactUsSection() {
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
-                className="relative w-full bg-gradient-to-r from-[#DE2329] to-[#961216] text-white py-4 px-8 rounded-xl font-medium
+                className="relative w-full bg-[#DE2329] text-white py-4 px-8 rounded-xl font-medium
                           hover:opacity-90 transition-all duration-300 disabled:opacity-70"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
