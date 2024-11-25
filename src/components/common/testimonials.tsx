@@ -97,7 +97,7 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="w-full container mx-auto px-4 py-24">
+    <div className="w-full container mx-auto px-4 py-24 h-screen">
       <span className="inline-block text-[#FC2B46] text-md font-semibold tracking-wider uppercase font-unbounded mb-3">
         Testimonials
       </span>

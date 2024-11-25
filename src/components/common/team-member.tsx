@@ -57,13 +57,13 @@ export default function TeamMembersSection() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
-              <div key={index} className="space-y-4">
+              <div key={index} className="space-y-4 duration-300 ">
                 <div className="aspect-square relative overflow-hidden rounded-lg">
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-all duration-300 hover:scale-105"
                   />
                 </div>
                 <div className="space-y-2">
