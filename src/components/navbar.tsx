@@ -188,7 +188,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 z-50 w-full transition-all duration-200 bg-white ${
+      className={`fixed top-0 z-50 w-full transition-all duration-200 bg-white py-[1rem] ${
         hasScrolled ? "shadow-md" : ""
       }`}
     >
