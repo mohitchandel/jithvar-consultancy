@@ -27,12 +27,12 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 
   return (
     <div
-      className="group relative overflow-hidden rounded-xl bg-white/10 p-6 transition-all duration-300 hover:scale-105"
+      className="group relative overflow-hidden rounded-xl bg-white/10 hover:bg-[#FC2B46] p-6 transition-all duration-300 hover:scale-105"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="mb-4">
-        <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 group-hover:scale-110 group-hover:bg-[#FC2B46]">
+        <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 group-hover:scale-110 group-hover:bg-[#1F2937]">
           <Icon className="h-6 w-6" />
         </div>
       </div>
@@ -48,7 +48,16 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           Read more
         </Link>
       </div>
-      {isHovered && <BorderBeam size={150} duration={8} delay={9} />}
+      {isHovered && (
+        <BorderBeam
+          size={150}
+          duration={8}
+          delay={9}
+          colorFrom="#41EAD4"
+          colorTo="#41EAD4"
+          borderWidth={2.5}
+        />
+      )}
     </div>
   );
 };

@@ -74,19 +74,19 @@ export default function TeamMembersSection() {
                   <div className="flex gap-4">
                     <a
                       href="#"
-                      className="text-[#FDFFFC] hover:text-white transition-colors"
+                      className="text-[#FDFFFC] hover:text-[#FC2B46] transition-colors"
                     >
                       <Facebook className="w-5 h-5" />
                     </a>
                     <a
                       href="#"
-                      className="text-[#FDFFFC] hover:text-white transition-colors"
+                      className="text-[#FDFFFC] hover:text-[#FC2B46] transition-colors"
                     >
                       <Twitter className="w-5 h-5" />
                     </a>
                     <a
                       href="#"
-                      className="text-[#FDFFFC] hover:text-white transition-colors"
+                      className="text-[#FDFFFC] hover:text-[#FC2B46] transition-colors"
                     >
                       <Linkedin className="w-5 h-5" />
                     </a>

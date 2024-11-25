@@ -1,285 +1,216 @@
 "use client";
 import React, { useState } from "react";
-import Image from "next/image";
-import { Star, Quote } from "lucide-react";
-import { motion } from "framer-motion";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselPrevious,
-  CarouselNext,
-} from "@/components/ui/carousel";
-import type { CarouselApi } from "@/components/ui/carousel";
+import { ChevronLeft, ChevronRight, Quote, StarIcon } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Item } from "@radix-ui/react-accordion";
 
 interface Testimonial {
   id: number;
-  name: string;
+  author: string;
   role: string;
-  rating: number;
-  feedback: string;
-  image: string;
-  company?: string;
+  content: string;
+  avatar: string;
 }
 
-interface TestimonialCardProps {
-  testimonial: Testimonial;
-  isMobile?: boolean;
-}
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-    },
-  },
-};
-
-const TestimonialCard: React.FC<TestimonialCardProps> = ({
-  testimonial,
-  isMobile = false,
-}) => (
-  <motion.div
-    className={`bg-white rounded-2xl overflow-hidden ${
-      isMobile ? "p-6" : "p-8"
-    } shadow-lg relative group h-full`}
-    variants={itemVariants}
-    whileHover={{ y: -5, transition: { duration: 0.3 } }}
-  >
-    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#DE2329]/5 to-transparent rounded-bl-full" />
-    <Quote className="absolute top-6 right-6 w-8 h-8 text-[#DE2329]/10" />
-
-    <div className="flex flex-col h-full">
-      <div className="flex items-start gap-6 mb-6">
-        <div className="relative flex-shrink-0">
-          <div className="w-24 h-24 md:w-28 md:h-28 rounded-2xl overflow-hidden relative">
-            <Image
-              src={testimonial.image}
-              alt={testimonial.name}
-              fill
-              className="object-cover"
-            />
-          </div>
-          <motion.div
-            className="absolute -bottom-3 -right-3 bg-[#DE2329] text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 0.3, type: "spring" }}
-          >
-            {String(testimonial.id).padStart(2, "0")}
-          </motion.div>
-        </div>
-
-        <div className="flex gap-1">
-          {[...Array(testimonial.rating)].map((_, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1 * i }}
-            >
-              <Star size={16} className="fill-[#DE2329] text-[#DE2329]" />
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      <div className="flex-1">
-        <motion.p
-          className="text-gray-600 text-lg leading-relaxed mb-6"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-        >
-          &quot;{testimonial.feedback}&quot;
-        </motion.p>
-      </div>
-
-      <div className="border-t border-gray-100 pt-4 mt-auto">
-        <motion.h3
-          className="font-bold text-lg text-gray-900"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-        >
-          {testimonial.name}
-        </motion.h3>
-        <motion.div
-          className="text-sm text-gray-500"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-        >
-          <p>{testimonial.role}</p>
-          {testimonial.company && (
-            <p className="text-[#DE2329]">{testimonial.company}</p>
-          )}
-        </motion.div>
-      </div>
-    </div>
-  </motion.div>
-);
-
-const Testimonials: React.FC = () => {
-  const [api, setApi] = useState<CarouselApi>();
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  React.useEffect(() => {
-    if (!api) return;
-
-    api.on("select", () => {
-      setActiveIndex(api.selectedScrollSnap());
-    });
-  }, [api]);
+const Testimonials = () => {
+  const [currentPair, setCurrentPair] = useState(0);
+  const [direction, setDirection] = useState(0);
 
   const testimonials: Testimonial[] = [
     {
       id: 1,
-      name: "Ishant Sharma",
+      author: "Ishant Sharma",
       role: "Web Designer",
-      company: "Tech Solutions Inc.",
-      rating: 5,
-      feedback:
-        "Objectively visualize error-free technology for B2B alignment. Monotonectally harness an expanded array of models via effective collaboration.",
-      image: "/img/client.png",
+      content:
+        "Jitvhar transformed our outdated website into a modern, user-friendly platform that perfectly represents our brand. Their attention to detail and seamless development process exceeded our expectations. Highly recommend their services!",
+      avatar: "/api/placeholder/32/32",
     },
     {
       id: 2,
-      name: "Priya Patel",
-      role: "UI/UX Designer",
-      company: "Creative Studios",
-      rating: 5,
-      feedback:
-        "The team's attention to detail and creative approach helped transform our vision into reality. Their work exceeded our expectations.",
-      image: "/img/client.png",
+      author: "Ishant Sharma",
+      role: "Web Designer",
+      content:
+        "Working with Jitvhar was a game-changer for our business. Their team delivered a beautifully designed and fully functional website that has significantly improved our customer engagement. Truly a pleasure to work with!",
+      avatar: "/api/placeholder/32/32",
     },
     {
       id: 3,
-      name: "Rajesh Kumar",
-      role: "Product Manager",
-      company: "Innovation Labs",
-      rating: 5,
-      feedback:
-        "Outstanding service and exceptional results. They truly understand client needs and deliver solutions that make a real impact.",
-      image: "/img/client.png",
+      author: "Sarah Johnson",
+      role: "Marketing Director",
+      content:
+        "The team at Jitvhar went above and beyond our expectations. They not only delivered a stunning website but also provided valuable insights that helped improve our overall digital strategy. Their expertise is unmatched!",
+      avatar: "/api/placeholder/32/32",
+    },
+    {
+      id: 4,
+      author: "Michael Chen",
+      role: "Startup Founder",
+      content:
+        "As a startup, we needed a partner who could understand our vision and bring it to life. Jitvhar did exactly that and more. Their innovative approach and attention to user experience helped us launch with confidence.",
+      avatar: "/api/placeholder/32/32",
+    },
+    {
+      id: 5,
+      author: "Emma Wilson",
+      role: "E-commerce Manager",
+      content:
+        "The e-commerce solution provided by Jitvhar revolutionized our online presence. Our sales have increased by 150% since launch, and customer feedback has been overwhelmingly positive. They're truly masters of their craft!",
+      avatar: "/api/placeholder/32/32",
+    },
+    {
+      id: 6,
+      author: "David Martinez",
+      role: "Product Owner",
+      content:
+        "What sets Jitvhar apart is their commitment to excellence and their collaborative approach. They took the time to understand our complex requirements and delivered a solution that exceeded our expectations in every way.",
+      avatar: "/api/placeholder/32/32",
     },
   ];
 
+  const nextTestimonials = () => {
+    setDirection(1);
+    setCurrentPair((prev) => (prev + 2 >= testimonials.length ? 0 : prev + 2));
+  };
+
+  const prevTestimonials = () => {
+    setDirection(-1);
+    setCurrentPair((prev) =>
+      prev - 2 < 0 ? Math.floor((testimonials.length - 1) / 2) * 2 : prev - 2
+    );
+  };
+
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0,
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? 1000 : -1000,
+      opacity: 0,
+    }),
+  };
+
   return (
-    <section className="relative py-20 overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/img/service-about-bg.png')] bg-cover opacity-50" />
-      <div className="absolute inset-0 bg-gradient-to-b from-white/80 to-white/40" />
+    <div className="w-full container mx-auto px-4 py-24">
+      <span className="inline-block text-[#FC2B46] text-md font-semibold tracking-wider uppercase font-unbounded mb-3">
+        Testimonials
+      </span>
+      <motion.h1
+        className="text-4xl font-bold mb-8 font-unbounded"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        What Happy Clients Say
+      </motion.h1>
 
-      <div className="container mx-auto px-4 relative">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <motion.div
-          className="text-center mb-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={containerVariants}
+          className=" bg-[#1F2937] rounded-3xl text-white p-12 flex flex-col items-center"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
         >
-          <motion.span
-            className="inline-block text-[#DE2329] font-serif text-2xl mb-4 relative"
-            variants={itemVariants}
-          >
-            Customer Feedback
-            <motion.div
-              className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-[#DE2329]"
-              initial={{ width: 0 }}
-              whileInView={{ width: 48 }}
-              transition={{ duration: 0.6 }}
-            />
-          </motion.span>
-          <motion.h2
-            className="text-4xl md:text-5xl font-bold text-gray-900"
-            variants={itemVariants}
-          >
-            What Our Happy Clients Say
-          </motion.h2>
+          <div className="text-[72px] font-bold mb-4">4.8</div>
+          <div className="flex gap-1 text-yellow-400 mb-4 text-xl">
+            <motion.span
+              className="flex"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ staggerChildren: 0.1 }}
+            >
+              {[1, 2, 3, 4, 5].map((Item) => {
+                return <StarIcon key={Item} />;
+              })}
+            </motion.span>
+          </div>
+          <div className="text-sm text-gray-400 mb-8">(100+ REVIEWS)</div>
+          <p className="text-center text-xl font-medium max-w-md">
+            Empowering World-Class Companies With Innovative Development
+            Solutions
+          </p>
+          <div className="flex gap-4 mt-12">
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={prevTestimonials}
+              className="p-4 rounded-full border border-gray-800 hover:bg-gray-800 transition-colors"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={nextTestimonials}
+              className="p-4 rounded-full bg-red-600 hover:bg-red-700 transition-colors"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </motion.button>
+          </div>
         </motion.div>
 
-        <div className="md:hidden">
-          <Carousel
-            setApi={setApi}
-            opts={{
-              align: "start",
-            }}
-            className="w-full"
-          >
-            <CarouselContent>
-              {testimonials.map((testimonial) => (
-                <CarouselItem key={testimonial.id}>
-                  <div className="h-full">
-                    <TestimonialCard
-                      testimonial={testimonial}
-                      isMobile={true}
-                    />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
-        </div>
-
-        <div className="hidden md:block">
-          <Carousel
-            setApi={setApi}
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-4 py-12">
-              {testimonials.map((testimonial) => (
-                <CarouselItem key={testimonial.id} className="pl-4 basis-1/2">
-                  <div className="h-full">
-                    <TestimonialCard testimonial={testimonial} />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <div className="flex justify-end gap-4 mt-8">
-              <CarouselPrevious className="position-static rounded-full w-12 h-12 border-2 border-[#DE2329] text-[#DE2329] hover:bg-[#DE2329] hover:text-white transition-colors" />
-              <CarouselNext className="position-static rounded-full w-12 h-12 border-2 border-[#DE2329] text-[#DE2329] hover:bg-[#DE2329] hover:text-white transition-colors" />
-            </div>
-          </Carousel>
-        </div>
-
-        <motion.div
-          className="hidden md:flex justify-center mt-8 gap-2"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-        >
-          {testimonials.map((_, index) => (
+        <div className="lg:col-span-2 bg-[#1F2937] rounded-3xl text-white p-12 overflow-hidden">
+          <AnimatePresence mode="wait" custom={direction}>
             <motion.div
-              key={index}
-              className={`w-2 h-2 rounded-full ${
-                index === activeIndex ? "bg-[#DE2329]" : "bg-gray-300"
-              }`}
-              animate={{
-                scale: index === activeIndex ? 1.5 : 1,
+              key={currentPair}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{
+                x: { type: "spring", stiffness: 300, damping: 30 },
+                opacity: { duration: 0.2 },
               }}
-              transition={{ duration: 0.3 }}
-            />
-          ))}
-        </motion.div>
+              className="grid grid-cols-1 md:grid-cols-2 gap-12"
+            >
+              {testimonials
+                .slice(currentPair, currentPair + 2)
+                .map((testimonial) => (
+                  <motion.div
+                    key={testimonial.id}
+                    className="flex flex-col h-full"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <div className="text-4xl font-serif mb-6">
+                      <Quote size={64} />
+                    </div>
+                    <p className="text-gray-100 text-lg mb-8 flex-grow">
+                      {testimonial.content}
+                    </p>
+                    <motion.div
+                      className="flex items-center mt-auto"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.2 }}
+                    >
+                      <img
+                        src={testimonial.avatar}
+                        alt={testimonial.author}
+                        className="w-12 h-12 rounded-full mr-4"
+                      />
+                      <div>
+                        <div className="font-medium text-lg">
+                          {testimonial.author}
+                        </div>
+                        <div className="text-gray-400">{testimonial.role}</div>
+                      </div>
+                    </motion.div>
+                  </motion.div>
+                ))}
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
-    </section>
+    </div>
   );
 };
 
