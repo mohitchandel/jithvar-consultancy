@@ -16,6 +16,42 @@ body {
   line-height: 1.6;
 }
 
+.mega-menu-item {
+  position: relative;
+  display: block;
+  padding: 4px 0;
+  transition: all 0.2s;
+}
+
+.mega-menu-item:hover span {
+  padding-left: 12px;
+}
+
+.mega-menu-item span {
+  position: relative;
+  display: inline-block;
+  transition: all 0.2s;
+}
+
+.mega-menu-item:hover span::before {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.mega-menu-item span::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  width: 16px;
+  height: 1px;
+  background-color: white;
+  transform: scaleX(0);
+  opacity: 0;
+  transition: all 0.2s;
+  transform-origin: left center;
+}
+
 @keyframes fade-in {
   from { opacity: 0; }
   to { opacity: 1; }

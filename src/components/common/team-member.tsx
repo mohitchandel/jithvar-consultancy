@@ -6,7 +6,7 @@ function TeamMembersSection() {
     {
       name: "Ishant Sharma",
       role: "Web Designer",
-      image: "https://i.pravatar.cc/300",
+      image: "https://i.pravatar.cc/900",
     },
     {
       name: "Ishant Sharma",
@@ -55,7 +55,7 @@ function TeamMembersSection() {
               Join Us Today <ArrowUpRight />
             </Button>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {teamMembers.map((member, index) => (
               <div key={index} className="space-y-4 duration-300 ">
                 <div className="aspect-square relative overflow-hidden rounded-lg">

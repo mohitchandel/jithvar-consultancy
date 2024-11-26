@@ -7,91 +7,53 @@ import Link from "next/link";
 const menuItems = {
   services: [
     {
-      title: "Development",
-      description: "Custom software solutions for your business needs",
-      icon: "🚀",
+      title: "PHP Outsourcing",
       items: [
-        {
-          name: "Web Development",
-          href: "#web",
-          description: "Modern, responsive websites",
-        },
-        {
-          name: "Mobile Development",
-          href: "#mobile",
-          description: "iOS and Android apps",
-        },
-        {
-          name: "Cloud Solutions",
-          href: "#cloud",
-          description: "Scalable cloud infrastructure",
-        },
+        { name: "Vanilla PHP", href: "#vanilla-php" },
+        { name: "Laravel Framework", href: "#laravel" },
+        { name: "Yii Framework", href: "#yii" },
+        { name: "Codeigniter Framework", href: "#codeigniter" },
+        { name: "CakePHP Framework", href: "#cakephp" },
       ],
     },
     {
-      title: "Design",
-      description: "Create beautiful and functional experiences",
-      icon: "🎨",
+      title: "Java Script",
       items: [
-        {
-          name: "UI Design",
-          href: "#ui",
-          description: "Intuitive user interfaces",
-        },
-        {
-          name: "UX Design",
-          href: "#ux",
-          description: "Seamless user experiences",
-        },
-        {
-          name: "Branding",
-          href: "#branding",
-          description: "Memorable brand identity",
-        },
+        { name: "React Js", href: "#react" },
+        { name: "Angular", href: "#angular" },
+        { name: "VueJS", href: "#vue" },
+        { name: "NodeJS", href: "#node" },
       ],
     },
     {
-      title: "Consulting",
-      description: "Expert guidance for your digital journey",
-      icon: "💡",
+      title: "CMS Development",
       items: [
-        {
-          name: "Digital Strategy",
-          href: "#strategy",
-          description: "Strategic digital planning",
-        },
-        {
-          name: "Tech Consulting",
-          href: "#tech",
-          description: "Technology advisory services",
-        },
-        {
-          name: "Technical Audit",
-          href: "#audit",
-          description: "In-depth system analysis",
-        },
+        { name: "Wordpress", href: "#wordpress" },
+        { name: "WooCommerce", href: "#woocommerce" },
+        { name: "Open Cart", href: "#opencart" },
+        { name: "Magento/Magento 2", href: "#magento" },
+        { name: "Zoho Development", href: "#zoho" },
       ],
     },
     {
-      title: "Additional Services",
-      description: "Comprehensive digital solutions",
-      icon: "🔧",
+      title: "Mobile Applications",
       items: [
-        {
-          name: "SEO Optimization",
-          href: "#seo",
-          description: "Improve search visibility",
-        },
-        {
-          name: "Content Creation",
-          href: "#content",
-          description: "Engaging digital content",
-        },
-        {
-          name: "Digital Marketing",
-          href: "#marketing",
-          description: "Results-driven campaigns",
-        },
+        { name: "Android Native", href: "#android" },
+        { name: "iOS Native", href: "#ios" },
+        { name: "React Native", href: "#react-native" },
+        { name: "Flutter", href: "#flutter" },
+      ],
+    },
+    {
+      title: "Digital Branding",
+      items: [
+        { name: "Search Engine Optimisation", href: "#seo" },
+        { name: "Graphic Designer", href: "#design" },
+        { name: "Content Writer", href: "#content" },
+        { name: "Google Adwords", href: "#adwords" },
+        { name: "Facebook Ads", href: "#facebook" },
+        { name: "Instagram Ads", href: "#instagram" },
+        { name: "Personal Assistant", href: "#assistant" },
       ],
     },
   ],
@@ -122,37 +84,25 @@ const Navbar = () => {
   }, []);
 
   const MegaMenu = () => (
-    <div className="fixed left-0 right-0 bg-white shadow-xl border-t">
-      <div className="container mx-auto py-8">
-        <div className="grid grid-cols-4 gap-8">
+    <div className="fixed left-0 right-0 bg-gray-900 text-white shadow-xl">
+      <div className="container mx-auto py-12">
+        <div className="grid grid-cols-5 gap-8">
           {menuItems.services.map((section, index) => (
-            <div
-              key={index}
-              className="p-4 hover:bg-gray-50 rounded-lg transition-all duration-200"
-            >
-              <div className="flex items-center gap-2 mb-4">
-                <div className="text-primary text-lg">{section.icon}</div>
-                <h3 className="font-semibold text-lg text-gray-900">
-                  {section.title}
-                </h3>
-              </div>
-              <p className="text-sm text-gray-500 mb-4">
-                {section.description}
-              </p>
-              <div className="space-y-3">
+            <div key={index} className="space-y-4">
+              <h3 className="font-semibold text-lg border-b border-gray-700 pb-2">
+                {section.title}
+              </h3>
+              <ul className="space-y-2">
                 {section.items.map((item, itemIndex) => (
-                  <Link
-                    key={itemIndex}
-                    href={item.href}
-                    className="block group"
-                  >
-                    <div className="text-primary font-medium">{item.name}</div>
-                    <div className="text-sm text-gray-500">
-                      {item.description}
-                    </div>
-                  </Link>
+                  <li key={itemIndex}>
+                    <Link href={item.href} className="mega-menu-item">
+                      <span className="text-gray-300 hover:text-white">
+                        {item.name}
+                      </span>
+                    </Link>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           ))}
         </div>
@@ -161,22 +111,24 @@ const Navbar = () => {
   );
 
   const MobileServices = () => (
-    <div className="pl-6 space-y-6 mt-2 bg-gray-50 py-4 rounded-lg">
+    <div className="pl-6 space-y-6 mt-2 bg-gray-900 text-white py-4 rounded-lg">
       {menuItems.services.map((section, index) => (
         <div key={index}>
-          <div className="flex items-center space-x-2 mb-2">
-            <span className="text-xl">{section.icon}</span>
-            <h3 className="font-semibold text-sm">{section.title}</h3>
-          </div>
-          <ul className="space-y-2 pl-4">
+          <h3 className="font-semibold text-sm border-b border-gray-700 pb-2">
+            {section.title}
+          </h3>
+          <ul className="space-y-2 mt-2">
             {section.items.map((item, itemIndex) => (
-              <li key={itemIndex}>
+              <li key={itemIndex} className="relative overflow-hidden">
                 <Link
                   href={item.href}
-                  className="block text-sm text-gray-600 hover:text-primary"
+                  className="group flex items-center text-sm text-gray-300 hover:text-white"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  {item.name}
+                  <span className="absolute left-0 w-5 h-px bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-200"></span>
+                  <span className="pl-0 group-hover:pl-7 transition-padding duration-200">
+                    {item.name}
+                  </span>
                 </Link>
               </li>
             ))}
@@ -222,7 +174,7 @@ const Navbar = () => {
                         <span>{link.name}</span>
                         <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
                       </button>
-                      <div className="hidden group-hover:block absolute top-full left-0 w-full">
+                      <div className="hidden group-hover:block absolute top-full left-0 w-screen">
                         <MegaMenu />
                       </div>
                     </div>
